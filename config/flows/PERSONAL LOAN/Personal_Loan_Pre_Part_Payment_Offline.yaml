@@ -1,11 +1,11 @@
 meta:
   domain: ONDC:FIS12
   version: 2.0.3
-  flowId: Personal_Loan_Offline
+  flowId: Personal_Loan_Pre_Part_Payment_Offline
   config_version: 0.0.0001
-  description: Personal Loan - Offline
+  description: Personal Loan Pre Part Payment Offline
   use_case_id: PERSONAL LOAN
-  flowName: Personal Loan Offline
+  flowName: Personal Loan Pre Part Payment Offline
 transaction_data:
   transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
   latest_timestamp: 1970-01-01T00:00:00.000Z
@@ -72,9 +72,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: search
-            timestamp: 2026-05-18T03:34:38.347Z
+            timestamp: 2026-05-18T06:47:15.569Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 01e6472a-09f1-495e-b26d-77b66005f43c
+            message_id: 66e80064-0378-4006-8ea5-d3dabc517d41
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -449,9 +449,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_search
-            timestamp: 2026-05-18T03:34:38.381Z
+            timestamp: 2026-05-18T06:47:15.590Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 01e6472a-09f1-495e-b26d-77b66005f43c
+            message_id: 66e80064-0378-4006-8ea5-d3dabc517d41
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -468,7 +468,7 @@ steps:
               descriptor:
                 name: ICICI Bank
               providers:
-                - id: personal_loan_provider_e660e4aa-0f47-4f81-9bbd-980bc7d7bd2e
+                - id: personal_loan_provider_eb428e75-8df9-4791-954e-b0ab204e727c
                   descriptor:
                     images:
                       - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -477,33 +477,33 @@ steps:
                     short_desc: ICICI Bank Ltd
                     long_desc: ICICI Bank Ltd, India.
                   categories:
-                    - id: cat_loan_394bb913-a154-4ede-b70b-96390af069e3
+                    - id: cat_loan_1455ca9c-d796-414a-bb53-c538c4c7866e
                       descriptor:
                         code: LOAN
                         name: Loan
-                    - id: cat_personal_loan_8101a70a-4250-4556-b379-ce8cf49dcba1
-                      parent_category_id: cat_loan_394bb913-a154-4ede-b70b-96390af069e3
+                    - id: cat_personal_loan_170d6e5b-5327-4dab-a591-76ec8af07d45
+                      parent_category_id: cat_loan_1455ca9c-d796-414a-bb53-c538c4c7866e
                       descriptor:
                         code: PERSONAL_LOAN
                         name: Personal Loan
-                    - id: cat_bureau_loan_a8d76fae-1899-48e5-8fca-0ff8d4dc562f
-                      parent_category_id: cat_personal_loan_8101a70a-4250-4556-b379-ce8cf49dcba1
+                    - id: cat_bureau_loan_dfb62430-ef03-4d25-897e-dea2fb1ee910
+                      parent_category_id: cat_personal_loan_170d6e5b-5327-4dab-a591-76ec8af07d45
                       descriptor:
                         code: BUREAU_LOAN
                         name: Bureau Loan
-                    - id: cat_pre_qualifier_6f71cfc6-935d-4a73-8b25-21b19292daab
-                      parent_category_id: cat_loan_394bb913-a154-4ede-b70b-96390af069e3
+                    - id: cat_pre_qualifier_d3e140c7-4393-43a4-aaeb-7657bed2329f
+                      parent_category_id: cat_loan_1455ca9c-d796-414a-bb53-c538c4c7866e
                       descriptor:
                         code: PRE_QUALIFIER
                         name: Pre Qualifier
                   items:
-                    - id: bureau_personal_loan_3cd9f179-33ca-4ce9-b22d-35ebb60199ae
+                    - id: bureau_personal_loan_762204cf-2ed3-4d72-ae0f-28c0fcf5fcc4
                       descriptor:
                         code: PERSONAL_LOAN
                         name: Personal Loan without AA - Offline Journey
                       category_ids:
-                        - cat_personal_loan_8101a70a-4250-4556-b379-ce8cf49dcba1
-                        - cat_bureau_loan_a8d76fae-1899-48e5-8fca-0ff8d4dc562f
+                        - cat_personal_loan_170d6e5b-5327-4dab-a591-76ec8af07d45
+                        - cat_bureau_loan_dfb62430-ef03-4d25-897e-dea2fb1ee910
                       fulfillment_ids:
                         - F1
                       tags:
@@ -555,19 +555,19 @@ steps:
                           headings:
                             - PERSONAL_INFORMATION
                         form:
-                          id: form_1a241609-ad8f-4313-b557-ab3faa91252a
+                          id: form_ebd1f320-cdda-4613-9824-4328e6d93650
                           mime_type: text/html
                           url: undefined/forms/ONDC:FIS12/personal_loan_information_form/?transaction_id=37495a18-da5d-42d2-ad74-db69a22618fe&session_id=undefined
                           resubmit: false
                           multiple_sumbissions: false
                         required: true
-                    - id: bureau_personal_loan_954e9c23-9d1f-492a-9204-e35e450e7168
+                    - id: bureau_personal_loan_ad267424-cc7b-4661-aa9b-f2eb70e4a5b1
                       descriptor:
                         code: PERSONAL_LOAN
                         name: Personal Loan without AA - Single Redirection
                       category_ids:
-                        - cat_personal_loan_8101a70a-4250-4556-b379-ce8cf49dcba1
-                        - cat_bureau_loan_a8d76fae-1899-48e5-8fca-0ff8d4dc562f
+                        - cat_personal_loan_170d6e5b-5327-4dab-a591-76ec8af07d45
+                        - cat_bureau_loan_dfb62430-ef03-4d25-897e-dea2fb1ee910
                       fulfillment_ids:
                         - F2
                       tags:
@@ -619,18 +619,18 @@ steps:
                           headings:
                             - PERSONAL_INFORMATION
                         form:
-                          id: form_1a241609-ad8f-4313-b557-ab3faa91252a
+                          id: form_ebd1f320-cdda-4613-9824-4328e6d93650
                           mime_type: text/html
                           url: undefined/forms/ONDC:FIS12/personal_loan_information_form/?transaction_id=37495a18-da5d-42d2-ad74-db69a22618fe&session_id=undefined
                           resubmit: false
                           multiple_sumbissions: false
                         required: true
-                    - id: personal_loan_c6db732e-da37-450c-af89-2988589c398f
+                    - id: personal_loan_6b770454-8743-4526-9f8e-ed97fb7405a5
                       descriptor:
                         code: PRE_QUALIFIER
                         name: Pre Qualifier
                       category_ids:
-                        - cat_pre_qualifier_6f71cfc6-935d-4a73-8b25-21b19292daab
+                        - cat_pre_qualifier_d3e140c7-4393-43a4-aaeb-7657bed2329f
                       fulfillment_ids:
                         - F3
                       matched: true
@@ -795,19 +795,19 @@ steps:
           panName: Jyoti Sharma
           personalemail: jyoti.sharma@thewitslab.com
           officialemail: jyoti.sharma@thewitslab.com
-          dob: 2026-05-12
+          dob: 2026-05-13
           gender: female
           pan: BAJPC4350M
           contactNumber: "6284870148"
           employmentType: salaried
           income: "78"
           companyName: hiuhci
-          udyamNumber: "69779"
-          addressL1: hlkjlkj
+          udyamNumber: ""
+          addressL1: ""
           addressL2: ""
           city: ""
-          state: vjkjhkh
-          pincode: "160103"
+          state: ""
+          pincode: ""
           aa_id: "986980808"
           endUse: travel
           derivedData: {}
@@ -878,9 +878,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: select
-            timestamp: 2026-05-18T03:35:11.668Z
+            timestamp: 2026-05-18T06:47:39.370Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 53ac0b69-0339-45e9-90f5-88b7a1781576
+            message_id: 9fc4d882-e079-448a-b120-628aa94fdfea
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -895,7 +895,7 @@ steps:
           message:
             order:
               provider:
-                id: personal_loan_provider_e660e4aa-0f47-4f81-9bbd-980bc7d7bd2e
+                id: personal_loan_provider_eb428e75-8df9-4791-954e-b0ab204e727c
               items:
                 - id: ITEM_ID_PERSONAL_LOAN_2
                   xinput:
@@ -1175,9 +1175,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_select
-            timestamp: 2026-05-18T03:35:11.694Z
+            timestamp: 2026-05-18T06:47:39.396Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 53ac0b69-0339-45e9-90f5-88b7a1781576
+            message_id: 9fc4d882-e079-448a-b120-628aa94fdfea
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1192,7 +1192,7 @@ steps:
           message:
             order:
               provider:
-                id: personal_loan_provider_e660e4aa-0f47-4f81-9bbd-980bc7d7bd2e
+                id: personal_loan_provider_eb428e75-8df9-4791-954e-b0ab204e727c
                 descriptor:
                   images:
                     - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -1361,7 +1361,7 @@ steps:
                         - SET_LOAN_AMOUNT
                         - KYC
                     form:
-                      id: ekyc_details_b19770cd-4ef9-48ac-87cf-c28345088881
+                      id: ekyc_details_563e0046-df79-49ea-b93a-3dc1b84baa36
                       mime_type: application/html
                       url: undefined/forms/ONDC:FIS12/Ekyc_details_form/?transaction_id=37495a18-da5d-42d2-ad74-db69a22618fe&session_id=undefined
                       resubmit: false
@@ -1795,9 +1795,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_status
-            timestamp: 2026-05-18T03:35:14.117Z
+            timestamp: 2026-05-18T06:47:41.409Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 76cea2d0-1bfc-43f5-ac0f-5fd3eef1f6e6
+            message_id: 71aeccdf-72c6-40ce-bf1e-19922c52f631
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1812,7 +1812,7 @@ steps:
           message:
             order:
               provider:
-                id: personal_loan_provider_e660e4aa-0f47-4f81-9bbd-980bc7d7bd2e
+                id: personal_loan_provider_eb428e75-8df9-4791-954e-b0ab204e727c
                 descriptor:
                   images:
                     - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -1971,7 +1971,7 @@ steps:
                       display: true
                   xinput:
                     form:
-                      id: ekyc_details_b19770cd-4ef9-48ac-87cf-c28345088881
+                      id: ekyc_details_563e0046-df79-49ea-b93a-3dc1b84baa36
                     form_response:
                       status: APPROVED
                       submission_id: e9764f76-27e1-4be5-894e-e228407b683d
@@ -2395,9 +2395,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_status
-            timestamp: 2026-05-18T03:35:14.145Z
+            timestamp: 2026-05-18T06:47:41.432Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 6d291806-81d6-40e3-90c2-55b578e6a53a
+            message_id: 8ad2bf2f-6f5c-423e-943c-14e9f3d2d5c2
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2412,7 +2412,7 @@ steps:
           message:
             order:
               provider:
-                id: personal_loan_provider_e660e4aa-0f47-4f81-9bbd-980bc7d7bd2e
+                id: personal_loan_provider_eb428e75-8df9-4791-954e-b0ab204e727c
                 descriptor:
                   images:
                     - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -2581,7 +2581,7 @@ steps:
                         - SET_LOAN_AMOUNT
                         - KYC
                     form:
-                      id: ekyc_details_b19770cd-4ef9-48ac-87cf-c28345088881
+                      id: ekyc_details_563e0046-df79-49ea-b93a-3dc1b84baa36
                       mime_type: application/html
                       url: undefined/forms/ONDC:FIS12/Ekyc_details_form/?transaction_id=37495a18-da5d-42d2-ad74-db69a22618fe&session_id=undefined
                       resubmit: false
@@ -2725,9 +2725,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: confirm
-            timestamp: 2026-05-18T03:35:14.186Z
+            timestamp: 2026-05-18T06:47:41.465Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: de8ca9d9-d8ff-44c8-b612-a97da37b183d
+            message_id: fb191cc7-e8bf-419f-9cb5-09117df400a9
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2742,12 +2742,12 @@ steps:
           message:
             order:
               provider:
-                id: personal_loan_provider_e660e4aa-0f47-4f81-9bbd-980bc7d7bd2e
+                id: personal_loan_provider_eb428e75-8df9-4791-954e-b0ab204e727c
               items:
                 - id: ITEM_ID_PERSONAL_LOAN_2
                   xinput:
                     form:
-                      id: ekyc_details_b19770cd-4ef9-48ac-87cf-c28345088881
+                      id: ekyc_details_563e0046-df79-49ea-b93a-3dc1b84baa36
                     form_response:
                       status: SUCCESS
                       submission_id: F06_SUBMISSION_ID
@@ -2892,10 +2892,15 @@ steps:
                       value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
                         Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
             items:
-              - id: ITEM_ID_PERSONAL_LOAN_2
+              - id: ITEM_ID_PERSONAL_LOAN_1
                 descriptor:
                   code: PERSONAL_LOAN
-                  name: Personal Loan
+                  name: Personal Loan without AA - Offline Journey
+                category_ids:
+                  - "101123"
+                  - "101124"
+                fulfillment_ids:
+                  - F1
                 price:
                   currency: INR
                   value: "233900"
@@ -2903,7 +2908,6 @@ steps:
                   - descriptor:
                       code: LOAN_INFO
                       name: Loan Information
-                    display: true
                     list:
                       - descriptor:
                           code: INTEREST_RATE
@@ -2948,7 +2952,9 @@ steps:
                       - descriptor:
                           code: ANNUAL_PERCENTAGE_RATE
                           name: Annual Percentage Rate
-                          short_desc: Effective annualized interest rate in percentage
+                          short_desc: Effective annualized interest rate in percentage computed on net
+                            disbursed amount using IRR approach and reducing
+                            balance method
                         value: 5%
                       - descriptor:
                           code: REPAYMENT_FREQUENCY
@@ -2958,8 +2964,8 @@ steps:
                       - descriptor:
                           code: NUMBER_OF_INSTALLMENTS_OF_REPAYMENT
                           name: Number of installments of repayment
-                          short_desc: Number borrower must repay
-                        value: "5"
+                          short_desc: Number of installments borrower has to make to payback the loan
+                        value: "45"
                       - descriptor:
                           code: TNC_LINK
                           name: Terms & Conditions
@@ -2968,23 +2974,32 @@ steps:
                       - descriptor:
                           code: COOL_OFF_PERIOD
                           name: cool off period
-                          short_desc: Cooling off / look-up period
+                          short_desc: Cooling off/look-up period during which borrower shall not be
+                            charged any penalty
                         value: P30D
                       - descriptor:
                           code: INSTALLMENT_AMOUNT
                           name: Installment amount
-                          short_desc: Each installment amount
+                          short_desc: Each installment amount of repayment
                         value: "46360"
                       - descriptor:
                           code: KFS_LINK
                           name: Key Facts Statement Link
-                          short_desc: KFS details in HTML table format
+                          short_desc: A link provided by the BPP points to a Key Fact Statement (KFS)
+                            document related to a loan. When accessed, the
+                            document is returned in text/html format, with the
+                            loan details organized in a standard HTML table.
+                            This format makes it easy for the buyer's app to
+                            read and reformat the information as needed. For
+                            more details, refer to the "KFS_LINK format"
+                            document in the "feature-ui" section.
                         value: https://icicibank.com/loan/kfs-terms
+                    display: true
             quote:
-              id: bcaa0931-47d7-42c9-aa83-3fb2b5048551
+              id: LOAN_LEAD_ID_OR_SIMILAR
               price:
                 currency: INR
-                value: "233900"
+                value: "232300"
               breakup:
                 - title: PRINCIPAL
                   price:
@@ -3014,9 +3029,11 @@ steps:
                   price:
                     value: "0"
                     currency: INR
-              ttl: P15D
+              ttl: PT15D
             fulfillments:
-              - customer:
+              - id: F1
+                type: LOAN
+                customer:
                   person:
                     name: John Doe
                   contact:
@@ -3024,48 +3041,55 @@ steps:
                     email: john.doe@example.com
                 state:
                   descriptor:
-                    code: SANCTIONED
-            payments:
-              - id: PAYMENT_ID_PERSONAL_LOAN
-                type: ON_ORDER
-                status: NOT-PAID
-                collected_by: BPP
+                    code: DISBURSED
                 tags:
                   - descriptor:
-                      code: BUYER_FINDER_FEES
+                      name: Checklist
+                      code: CHECKLISTS
                     display: false
                     list:
                       - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent-annualized
+                          code: PERSONAL_INFORMATION
+                          name: Personal Information
+                        value: SUCCESSFUL
                       - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "1"
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
+                          code: LOAN_OFFER
+                          name: Loan Offer
+                        value: SELECTED
                       - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: PT60M
+                          code: JOURNEY_OFFLINE
+                          name: Journey Offline
+                        value: SUCCESSFUL
                       - descriptor:
-                          code: SETTLEMENT_BASIS
-                        value: INVOICE_RECEIPT
+                          code: KYC
+                          name: OFFLINE
+                        value: SUCCESSFUL
                       - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: "TRUE"
+                          code: REPAYMENT
+                          name: E-MANDATE
+                        value: SUCCESSFUL
                       - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
+                          code: BANK_ACCOUNT_VERIFICATION
+                          name: PENNY DROP
+                        value: SUCCESSFUL
                       - descriptor:
-                          code: STATIC_TERMS
-                        value: https://bpp.credit.becknprotocol.org/personal-banking/loans/personal-loan
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: "1159"
-                      - descriptor:
-                          code: OFFLINE_CONTRACT
-                        value: "true"
+                          code: LOAN_AGREEMENT
+                          name: CLICKWRAP
+                        value: SUCCESSFUL
+            payments:
+              - type: ON_FULFILLMENT
+                id: LOAN_DISBURSMENT_ID
+                status: PAID
+                collected_by: CONSUMER
+                time:
+                  label: LOAN_DISBURSMENT
+                  timestamp: 2023-05-25T05:23:03.443Z
+                params:
+                  bank_code: XXXXXXXX
+                  bank_account_number: xxxxxxxxxxxxxx
+                  transaction_id: 4429e52c-5d41-4e24-ac2e-42eb2fa8f72b
+                  amount: "197700"
+                  currency: INR
               - type: POST_FULFILLMENT
                 id: INSTALLMENT_ID_PERSONAL_LOAN
                 params:
@@ -3140,9 +3164,21 @@ steps:
                   code: LOAN_AGREEMENT
                   name: Loan Agreement Document
                   short_desc: Download your Loan Agreement document here
-                  long_desc: A Loan Agreement Document is a legal contract outlining terms...
+                  long_desc: A Loan Agreement Document is a legal contract outlining terms such as
+                    loan amount, interest rate, repayment schedule, and
+                    collateral, binding a lender and borrower in a formal
+                    financial arrangement.
                 mime_type: application/pdf
                 url: https://lender.com/loan/loan-agreement/O1.pdf
+              - descriptor:
+                  code: LOAN_CANCELLATION
+                  name: Loan Cancellation Document
+                  short_desc: Download your Loan Cancellation document here
+                  long_desc: A Loan Cancellation Document is a formal agreement used to terminate
+                    an existing loan, releasing the borrower from repayment
+                    obligations and confirming the loan's cancellation.
+                mime_type: application/pdf
+                url: https://lender.com/loan/loan-cancellation/O1.pdf
             created_at: 2023-05-25T05:23:03.443Z
             updated_at: 2023-05-25T05:23:03.443Z
       saveData:
@@ -3167,9 +3203,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_confirm
-            timestamp: 2026-05-18T03:35:14.242Z
+            timestamp: 2026-05-18T06:47:41.498Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: de8ca9d9-d8ff-44c8-b612-a97da37b183d
+            message_id: fb191cc7-e8bf-419f-9cb5-09117df400a9
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3183,9 +3219,838 @@ steps:
                 code: "*"
           message:
             order:
-              id: LOAN_ORDER_1779075314249_DEFAULT
+              id: LOAN_ORDER_1779086861504_DEFAULT
               provider:
-                id: personal_loan_provider_e660e4aa-0f47-4f81-9bbd-980bc7d7bd2e
+                id: personal_loan_provider_eb428e75-8df9-4791-954e-b0ab204e727c
+                descriptor:
+                  images:
+                    - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
+                      size_type: sm
+                  name: ICICI Bank
+                  short_desc: ICICI Bank Ltd
+                  long_desc: ICICI Bank Ltd, India.
+                tags:
+                  - descriptor:
+                      code: CONTACT_INFO
+                      name: Contact Info
+                    list:
+                      - descriptor:
+                          code: GRO_NAME
+                          name: Gro name
+                        value: ICICI
+                      - descriptor:
+                          code: GRO_EMAIL
+                          name: Gro email
+                        value: lifeline@iciciprulife.com
+                      - descriptor:
+                          code: GRO_CONTACT_NUMBER
+                          name: Gro contact number
+                        value: 1860 266 7766
+                      - descriptor:
+                          code: GRO_DESIGNATION
+                          name: Gro Designation
+                        value: Nodal Grievance Redressal Officer
+                      - descriptor:
+                          code: GRO_ADDRESS
+                          name: Gro Address
+                        value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                          Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_LINK
+                          name: Customer support link
+                        value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                          name: Customer support contact number
+                        value: 1800 1080
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_EMAIL
+                          name: Customer support email
+                        value: customer.care@icicibank.com
+                  - descriptor:
+                      code: LSP_INFO
+                      name: Lsp Info
+                    list:
+                      - descriptor:
+                          code: LSP_NAME
+                          name: Lsp name
+                        value: ICICI_LSP
+                      - descriptor:
+                          code: LSP_EMAIL
+                          name: Lsp email
+                        value: lsp@iciciprulife.com
+                      - descriptor:
+                          code: LSP_CONTACT_NUMBER
+                          name: Lsp contact number
+                        value: 1860 266 7766
+                      - descriptor:
+                          code: LSP_ADDRESS
+                          name: Lsp Address
+                        value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                          Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+              items:
+                - id: ITEM_ID_PERSONAL_LOAN_1
+                  descriptor:
+                    code: PERSONAL_LOAN
+                    name: Personal Loan without AA - Offline Journey
+                  category_ids:
+                    - "101123"
+                    - "101124"
+                  fulfillment_ids:
+                    - F1
+                  price:
+                    currency: INR
+                    value: "233900"
+                  tags:
+                    - descriptor:
+                        code: LOAN_INFO
+                        name: Loan Information
+                      list:
+                        - descriptor:
+                            code: INTEREST_RATE
+                            name: Interest Rate
+                            short_desc: Loans starting from 12% (p.a)
+                          value: 12%
+                        - descriptor:
+                            code: TERM
+                            name: Loan Term
+                            short_desc: Loans Duration 5 months
+                          value: 5 months
+                        - descriptor:
+                            code: INTEREST_RATE_TYPE
+                            name: Interest rate type
+                            short_desc: Fixed Interest type
+                          value: FIXED
+                        - descriptor:
+                            code: APPLICATION_FEE
+                            name: Application Fees
+                            short_desc: Application Fees
+                          value: 1000 INR
+                        - descriptor:
+                            code: FORECLOSURE_FEE
+                            name: Foreclosure Penalty
+                            short_desc: Loan Foreclosure Penalty
+                          value: 0.5%
+                        - descriptor:
+                            code: INTEREST_RATE_CONVERSION_CHARGE
+                            name: interest rate conversion charges
+                            short_desc: Interest rate conversion charges
+                          value: 1000 INR
+                        - descriptor:
+                            code: DELAY_PENALTY_FEE
+                            name: Delayed payments penalty
+                            short_desc: Delayed payments penalty
+                          value: 5%
+                        - descriptor:
+                            code: OTHER_PENALTY_FEE
+                            name: Other Penal Charges
+                            short_desc: Other Penal Charges
+                          value: 1%
+                        - descriptor:
+                            code: ANNUAL_PERCENTAGE_RATE
+                            name: Annual Percentage Rate
+                            short_desc: Effective annualized interest rate in percentage computed on net
+                              disbursed amount using IRR approach and reducing
+                              balance method
+                          value: 5%
+                        - descriptor:
+                            code: REPAYMENT_FREQUENCY
+                            name: Repayment Frequency
+                            short_desc: Repayment Frequency by borrower
+                          value: MONTHLY
+                        - descriptor:
+                            code: NUMBER_OF_INSTALLMENTS_OF_REPAYMENT
+                            name: Number of installments of repayment
+                            short_desc: Number of installments borrower has to make to payback the loan
+                          value: "45"
+                        - descriptor:
+                            code: TNC_LINK
+                            name: Terms & Conditions
+                            short_desc: Terms and Conditions
+                          value: https://icicibank.com/loan/tnc.html
+                        - descriptor:
+                            code: COOL_OFF_PERIOD
+                            name: cool off period
+                            short_desc: Cooling off/look-up period during which borrower shall not be
+                              charged any penalty
+                          value: P30D
+                        - descriptor:
+                            code: INSTALLMENT_AMOUNT
+                            name: Installment amount
+                            short_desc: Each installment amount of repayment
+                          value: "46360"
+                        - descriptor:
+                            code: KFS_LINK
+                            name: Key Facts Statement Link
+                            short_desc: A link provided by the BPP points to a Key Fact Statement (KFS)
+                              document related to a loan. When accessed, the
+                              document is returned in text/html format, with the
+                              loan details organized in a standard HTML table.
+                              This format makes it easy for the buyer's app to
+                              read and reformat the information as needed. For
+                              more details, refer to the "KFS_LINK format"
+                              document in the "feature-ui" section.
+                          value: https://icicibank.com/loan/kfs-terms
+                      display: true
+              quote:
+                id: bcaa0931-47d7-42c9-aa83-3fb2b5048551
+                price:
+                  currency: INR
+                  value: "232300"
+                breakup:
+                  - title: PRINCIPAL
+                    price:
+                      value: "200000"
+                      currency: INR
+                  - title: INTEREST
+                    price:
+                      value: "30000"
+                      currency: INR
+                  - title: PROCESSING_FEE
+                    price:
+                      value: "1800"
+                      currency: INR
+                  - title: OTHER_UPFRONT_CHARGES
+                    price:
+                      value: "0"
+                      currency: INR
+                  - title: INSURANCE_CHARGES
+                    price:
+                      value: "500"
+                      currency: INR
+                  - title: NET_DISBURSED_AMOUNT
+                    price:
+                      value: "197700"
+                      currency: INR
+                  - title: OTHER_CHARGES
+                    price:
+                      value: "0"
+                      currency: INR
+                ttl: PT15D
+              fulfillments:
+                - id: F1
+                  type: LOAN
+                  customer:
+                    person:
+                      name: John Doe
+                    contact:
+                      phone: +91-9999999999
+                      email: john.doe@example.com
+                  state:
+                    descriptor:
+                      code: DISBURSED
+                      name: Loan Disbursed
+                  tags:
+                    - descriptor:
+                        name: Checklist
+                        code: CHECKLISTS
+                      display: false
+                      list:
+                        - descriptor:
+                            code: PERSONAL_INFORMATION
+                            name: Personal Information
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: LOAN_OFFER
+                            name: Loan Offer
+                          value: SELECTED
+                        - descriptor:
+                            code: JOURNEY_OFFLINE
+                            name: Journey Offline
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: KYC
+                            name: OFFLINE
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: REPAYMENT
+                            name: E-MANDATE
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: BANK_ACCOUNT_VERIFICATION
+                            name: PENNY DROP
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: LOAN_AGREEMENT
+                            name: CLICKWRAP
+                          value: SUCCESSFUL
+              payments: []
+              cancellation_terms:
+                - fulfillment_state:
+                    descriptor:
+                      code: SANCTIONED
+                  cancellation_fee:
+                    percentage: 3%
+                - external_ref:
+                    mimetype: text/html
+                    url: https://bpp.credit.becknprotocol.org/tnc.html
+                - fulfillment_state:
+                    descriptor:
+                      code: DISBURSED
+                  cancellation_fee:
+                    percentage: 5%
+              documents:
+                - descriptor:
+                    code: LOAN_AGREEMENT
+                    name: Loan Agreement Document
+                    short_desc: Download your Loan Agreement document here
+                    long_desc: A Loan Agreement Document is a legal contract outlining terms such as
+                      loan amount, interest rate, repayment schedule, and
+                      collateral, binding a lender and borrower in a formal
+                      financial arrangement.
+                  mime_type: application/pdf
+                  url: https://lender.com/loan/loan-agreement/O1.pdf
+                - descriptor:
+                    code: LOAN_CANCELLATION
+                    name: Loan Cancellation Document
+                    short_desc: Download your Loan Cancellation document here
+                    long_desc: A Loan Cancellation Document is a formal agreement used to terminate
+                      an existing loan, releasing the borrower from repayment
+                      obligations and confirming the loan's cancellation.
+                  mime_type: application/pdf
+                  url: https://lender.com/loan/loan-cancellation/O1.pdf
+              created_at: 2026-05-18T06:47:41.504Z
+              updated_at: 2026-05-18T06:47:41.504Z
+        type: request
+        description: please add relevant description
+  - api: update
+    action_id: update_pre_part_payment
+    owner: BAP
+    responseFor: null
+    unsolicited: false
+    description: please add relevant description
+    mock:
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgaWYgKHNlc3Npb25EYXRhLnVwZGF0ZV90YXJnZXQgJiYgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2UpIHsKICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLnVwZGF0ZV90YXJnZXQgPSBzZXNzaW9uRGF0YS51cGRhdGVfdGFyZ2V0WzBdOwogIH0KCiAgaWYgKGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlKSB7CiAgICBpZiAoIWV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLnVwZGF0ZV90YXJnZXQpIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLnVwZGF0ZV90YXJnZXQgPSAncGF5bWVudHMnOwoKICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLm9yZGVyLmlkID0gc2Vzc2lvbkRhdGEub3JkZXJfaWRbMF07CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50c1swXSA9IHsKICAgICAgICB0aW1lOiB7CiAgICAgICAgICBsYWJlbDogIlBSRV9QQVJUX1BBWU1FTlQiCiAgICAgICAgfSwKICAgICAgICBwYXJhbXM6IHsKICAgICAgICAgIGFtb3VudDogU3RyaW5nKHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8ucHJlX3BhcnRfcGF5bWVudCkgfHwgIjkyMjMyIiwKICAgICAgICAgIGN1cnJlbmN5OiBzZXNzaW9uRGF0YS51cGRhdGVfY3VycmVuY3kgfHwgJ0lOUicKICAgICAgICB9CiAgICAgIH07CiAgIAogIH0KCiAgY29uc29sZS5sb2coIiB1cGRhdGUgcGF5bG9hZCBnZW5lcmF0ZWQgc3VjY2Vzc2Z1bGx5Iik7CiAgcmV0dXJuIGV4aXN0aW5nUGF5bG9hZDsKfQ==
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      defaultPayload:
+        context:
+          domain: ONDC:FIS12
+          action: update
+          timestamp: 2026-05-18T06:33:56.760Z
+          transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
+          message_id: 24ebd50c-3633-44c1-aa43-0ee94a1aa97a
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.3
+          location:
+            country:
+              code: IND
+            city:
+              code: "*"
+        message:
+          update_target: payments
+          order:
+            id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+            payments:
+              - params:
+                  amount: "92720"
+                  currency: INR
+                time:
+                  label: PRE_PART_PAYMENT
+      saveData:
+        transactionId: $.context.transaction_id
+        latestMessage_id: $.context.message_id
+        latestTimestamp: $.context.timestamp
+        bapId: $.context.bap_id
+        bapUri: $.context.bap_uri
+        bppId: $.context.bpp_id
+        bppUri: $.context.bpp_uri
+        city_code: $.context.location.city.code
+        update_currency: $.message.order.payments[0].params.currency
+        update_amount: $.message.order.payments[0].params.amount
+        update_label: $.message.order.payments[0].time.label
+        update_target: $.message.update_target
+        order_id: $.message.order.id
+      inputs:
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            part_payment_amount:
+              type: string
+              default: "2000"
+          additionalProperties: true
+          default: {}
+    examples:
+      - name: example for update
+        payload:
+          context:
+            domain: ONDC:FIS12
+            action: update
+            timestamp: 2026-05-18T06:47:42.871Z
+            transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
+            message_id: 80e684dd-7841-41b0-b4bf-ae7f9a1c80db
+            bap_id: bap.example.com
+            bap_uri: https://bap.example.com
+            ttl: PT30S
+            bpp_id: bpp.example.com
+            bpp_uri: https://bpp.example.com
+            version: 2.0.3
+            location:
+              country:
+                code: IND
+              city:
+                code: "*"
+          message:
+            update_target: payments
+            order:
+              id: LOAN_ORDER_1779086861504_DEFAULT
+              payments:
+                - time:
+                    label: PRE_PART_PAYMENT
+                  params:
+                    amount: undefined
+                    currency: INR
+        type: request
+        description: please add relevant description
+  - api: on_update
+    action_id: on_update_pre_part_payment
+    owner: BPP
+    responseFor: null
+    unsolicited: false
+    description: please add relevant description
+    mock:
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3Qgb3JkZXIgPSBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlcjsKICBjb25zdCByZWJ1aWx0UGF5bWVudHMgPSBbXTsKICBjb25zdCBwcmVQYXJ0UGF5bWVudCA9IG9yZGVyLnBheW1lbnRzLmZpbmQoCiAgICAgIChwKSA9PiBwLnR5cGUgPT09ICdQT1NUX0ZVTEZJTExNRU5UJyAmJgogICAgICAgIChwLnRpbWU/LmxhYmVsID09PSAnUFJFX1BBUlRfUEFZTUVOVCcgfHwgIXAudGltZT8ubGFiZWwpCiAgICApOwogIGlmIChwcmVQYXJ0UGF5bWVudCkgewogICAgICBwcmVQYXJ0UGF5bWVudC50aW1lLmxhYmVsID0gIlBSRV9QQVJUX1BBWU1FTlQiOwogICAgICBpZiAocHJlUGFydFBheW1lbnQudGltZS5yYW5nZSkgZGVsZXRlIHByZVBhcnRQYXltZW50LnRpbWUucmFuZ2U7CiAgICAgICAgaWYgKCFwcmVQYXJ0UGF5bWVudC5pZCB8fCBwcmVQYXJ0UGF5bWVudC5pZCA9PT0gJ1BBWU1FTlRfSURfR09MRF9MT0FOJyB8fCBwcmVQYXJ0UGF5bWVudC5pZCA9PT0gJ1BBWU1FTlRfSURfUEVSU09OQUxfTE9BTicpIHsKICAgICAgICBwcmVQYXJ0UGF5bWVudC5pZCA9IGBwcmVfcGFydF8ke3V1aWR2NCgpfWA7CiAgICAgICAgY29uc29sZS5sb2coYEdlbmVyYXRlZCB1bmlxdWUgcHJlLXBhcnQgcGF5bWVudCBJRDogJHtwcmVQYXJ0UGF5bWVudC5pZH1gKTsKICAgICAgfQoKICAgICAgY29uc3QgdXNlckFtdCA9IHNlc3Npb25EYXRhPy51cGRhdGVfYW1vdW50WzBdOwogICAgICBpZiAodHlwZW9mIHVzZXJBbXQgPT09ICJudW1iZXIiKSBwcmVQYXJ0UGF5bWVudC5wYXJhbXMuYW1vdW50ID0gU3RyaW5nKHVzZXJBbXQpOwogICAgICBlbHNlIGlmICh0eXBlb2YgdXNlckFtdCA9PT0gInN0cmluZyIgJiYgdXNlckFtdC50cmltKCkpIHByZVBhcnRQYXltZW50LnBhcmFtcy5hbW91bnQgPSB1c2VyQW10LnRyaW0oKTsKICAgICAgICBwcmVQYXJ0UGF5bWVudC51cmwgPSBjcmVhdGVGb3JtVVJMKCJPTkRDOkZJUzEyIiwicGF5bWVudF91cmxfZm9ybSIsc2Vzc2lvbkRhdGEpOwogICAgICAgIHJlYnVpbHRQYXltZW50cy5wdXNoKHByZVBhcnRQYXltZW50KTsKICAgIH0KCiAgaWYgKCghQXJyYXkuaXNBcnJheShvcmRlci5wYXltZW50cykgfHwgb3JkZXIucGF5bWVudHMubGVuZ3RoID09PSAwKSAmJiBzZXNzaW9uRGF0YT8ub3JkZXI/LnBheW1lbnRzPy5sZW5ndGgpIHsKICAgIG9yZGVyLnBheW1lbnRzID0gc2Vzc2lvbkRhdGEub3JkZXI/LlswXT8ucGF5bWVudHM7CiAgfQogICAgY29uc3Qgc2Vzc2lvblBheW1lbnRzID0gc2Vzc2lvbkRhdGEub3JkZXI/LlswXT8ucGF5bWVudHM7CiAgICBjb25zdCBpbnN0YWxsbWVudHNGcm9tU2Vzc2lvbiA9IHNlc3Npb25QYXltZW50cy5maWx0ZXIoCiAgICAgIChwKSA9PiBwLnR5cGUgPT09ICdQT1NUX0ZVTEZJTExNRU5UJyAmJiBwLnRpbWU/LmxhYmVsID09PSAnSU5TVEFMTE1FTlQnCiAgICApOwogICAgY29uc3Qgb25PcmRlckZyb21TZXNzaW9uID0gc2Vzc2lvblBheW1lbnRzLmZpbmQoCiAgICAgIChwKSA9PiBwLnR5cGUgPT09ICdPTl9PUkRFUicKICAgICk7CgogICAgICBpZiAob25PcmRlckZyb21TZXNzaW9uKSB7CiAgICAgIGNvbnN0IHVwZGF0ZWRPbk9yZGVyID0gewogICAgICAgIC4uLm9uT3JkZXJGcm9tU2Vzc2lvbiwKICAgICAgICBzdGF0dXM6ICdQQUlEJyAKICAgICAgfTsKICAgICAgcmVidWlsdFBheW1lbnRzLnB1c2godXBkYXRlZE9uT3JkZXIpOwogICAgICBjb25zb2xlLmxvZygnUHJlc2VydmVkIE9OX09SREVSIHBheW1lbnQgZnJvbSBzZXNzaW9uIHdpdGggdW5pcXVlIElEIGFuZCB1cGRhdGVkIHN0YXR1cyB0byBQQUlEJyk7CiAgICB9CgogICAgaWYgKGluc3RhbGxtZW50c0Zyb21TZXNzaW9uLmxlbmd0aCA+IDApIHsKICAgICAgY29uc29sZS5sb2coYEZvdW5kICR7aW5zdGFsbG1lbnRzRnJvbVNlc3Npb24ubGVuZ3RofSBpbnN0YWxsbWVudHMgZnJvbSBzZXNzaW9uIGRhdGFgKTsKICAgICBjb25zdCB1cGRhdGVkSW5zdGFsbG1lbnRzID0gaW5zdGFsbG1lbnRzRnJvbVNlc3Npb24ubWFwKChpbnN0YWxsbWVudCkgPT4gewogICAgICAgIHJldHVybiB7CiAgICAgICAgICAuLi5pbnN0YWxsbWVudCwKICAgICAgICAgIHN0YXR1czogJ05PVC1QQUlEJwogICAgICAgIH07CiAgICAgIH0pOwoKICAgICAgcmVidWlsdFBheW1lbnRzLnB1c2goLi4udXBkYXRlZEluc3RhbGxtZW50cyk7CiAgICAgIGNvbnNvbGUubG9nKCdNZXJnZWQgaW5zdGFsbG1lbnRzIOKAlCBhbGwgTk9ULVBBSUQgKHBheW1lbnQgbm90IHlldCBjb25maXJtZWQgYXQgdGhpcyBzdGFnZSknKTsKICAgIH0KCiAgICBvcmRlci5wYXltZW50cyA9IHJlYnVpbHRQYXltZW50czsKICAKCiAgaWYgKHNlc3Npb25EYXRhPy5vcmRlcl9pZCkgb3JkZXIuaWQgPSBzZXNzaW9uRGF0YS5vcmRlcl9pZFswXTsKICBlbHNlIGlmICghb3JkZXIuaWQgfHwgb3JkZXIuaWQgPT09ICJMT0FOX0xFQURfSURfT1JfU0lNSUxBUl9PUkRFUl9JRCIgfHwgU3RyaW5nKG9yZGVyLmlkKS5zdGFydHNXaXRoKCJMT0FOX0xFQURfSUQiKSkgewogICAgb3JkZXIuaWQgPSBgcGVyc29uYWxfbG9hbl8ke3V1aWR2NCgpfWA7CiAgfQoKICBpZiAob3JkZXIucHJvdmlkZXIpIHsKICAgIGlmIChzZXNzaW9uRGF0YT8uc2VsZWN0ZWRfcHJvdmlkZXI/LmlkKSBvcmRlci5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnNlbGVjdGVkX3Byb3ZpZGVyPy5bMF0/LmlkOwogICAgZWxzZSBpZiAoIW9yZGVyLnByb3ZpZGVyLmlkIHx8IG9yZGVyLnByb3ZpZGVyLmlkID09PSAiUFJPVklERVJfSUQiIHx8IFN0cmluZyhvcmRlci5wcm92aWRlci5pZCkuc3RhcnRzV2l0aCgiUFJPVklERVJfSUQiKSkgewogICAgICBvcmRlci5wcm92aWRlci5pZCA9IGBwZXJzb25hbF9sb2FuX3Byb3ZpZGVyXyR7dXVpZHY0KCl9YDsKICAgIH0KICB9CgogIGNvbnN0IHNlbGVjdGVkSXRlbSA9IHNlc3Npb25EYXRhPy5pdGVtWzBdIHx8IChBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhPy5pdGVtcykgPyBzZXNzaW9uRGF0YS5pdGVtc1swXSA6IHVuZGVmaW5lZCk7CiAgICAgICBjb25zb2xlLmxvZygnODQgTWVyZ2VkIGluc3RhbGxtZW50cyDigJQgYWxsIE5PVC1QQUlEIChwYXltZW50IG5vdCB5ZXQgY29uZmlybWVkIGF0IHRoaXMgc3RhZ2UpJyk7CgogIGlmIChvcmRlci5pdGVtcykgewogICAgaWYgKHNlbGVjdGVkSXRlbT8uaWQpIHsKICAgICAgb3JkZXIuaXRlbXNbMF0uaWQgPSBzZWxlY3RlZEl0ZW0uaWQKICAgICAgb3JkZXIuaXRlbXNbMF0ucHJpY2UgPSBzZXNzaW9uRGF0YS5vcmRlcj8uWzBdPy5pdGVtc1swXS5wcmljZQogICAgfQogICAgZWxzZSBpZiAoIW9yZGVyLml0ZW1zWzBdLmlkIHx8IFN0cmluZyhvcmRlci5pdGVtc1swXS5pZCkuc3RhcnRzV2l0aCgiSVRFTV9JRF9QRVJTT05BTF9MT0FOIikgfHwgU3RyaW5nKG9yZGVyLml0ZW1zWzBdLmlkKS5zdGFydHNXaXRoKCJJVEVNX0lEX0dPTERfTE9BTiIpKSB7CiAgICAgIG9yZGVyLml0ZW1zWzBdLmlkID0gYHBlcnNvbmFsX2xvYW5faXRlbV8ke3V1aWR2NCgpfWA7CiAgICB9CiAgfQogICAgICBjb25zb2xlLmxvZygnOTUgTWVyZ2VkIGluc3RhbGxtZW50cyDigJQgYWxsIE5PVC1QQUlEIChwYXltZW50IG5vdCB5ZXQgY29uZmlybWVkIGF0IHRoaXMgc3RhZ2UpJyk7CgogIGlmIChvcmRlci5xdW90ZSkgewogICAgICAgICAgY29uc29sZS5sb2coJzk4IE1lcmdlZCBpbnN0YWxsbWVudHMg4oCUIGFsbCBOT1QtUEFJRCAocGF5bWVudCBub3QgeWV0IGNvbmZpcm1lZCBhdCB0aGlzIHN0YWdlKScpOwoKICAgIGNvbnN0IHF1b3RlSWQgPSBzZXNzaW9uRGF0YT8ucXVvdGVfaWRbMF07CiAgICBvcmRlci5xdW90ZS5wcmljZSA9IHNlc3Npb25EYXRhLm9yZGVyPy5bMF0/LnF1b3RlLnByaWNlOwogICAgaWYgKHF1b3RlSWQpIG9yZGVyLnF1b3RlLmlkID0gcXVvdGVJZDsKICAgIGVsc2UgaWYgKCFvcmRlci5xdW90ZS5pZCB8fCBvcmRlci5xdW90ZS5pZCA9PT0gImJjYWEwOTMxLTQ3ZDctNDJjOS1hYTgzLTNmYjJiNTA0ODU1MSIgfHwgU3RyaW5nKG9yZGVyLnF1b3RlLmlkKS5zdGFydHNXaXRoKCJMT0FOX0xFQURfSUQiKSkgewogICAgICBvcmRlci5xdW90ZS5pZCA9IGBwZXJzb25hbF9sb2FuX3F1b3RlXyR7dXVpZHY0KCl9YDsKICAgIH0KICB9CiAgICAgIGNvbnNvbGUubG9nKCcxMDcgTWVyZ2VkIGluc3RhbGxtZW50cyDigJQgYWxsIE5PVC1QQUlEIChwYXltZW50IG5vdCB5ZXQgY29uZmlybWVkIGF0IHRoaXMgc3RhZ2UpJyk7CgogIGlmIChleGlzdGluZ1BheWxvYWQubWVzc2FnZT8ub3JkZXIpIHsKICAgIGNvbnN0IG5vdyA9IG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLm9yZGVyLmNyZWF0ZWRfYXQgPSBzZXNzaW9uRGF0YS5vcmRlcj8uWzBdPy5jcmVhdGVkX2F0OwogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIudXBkYXRlZF9hdCA9IG5vdzsKICAgIGNvbnNvbGUubG9nKCJTZXQgb3JkZXIuY3JlYXRlZF9hdCBhbmQgb3JkZXIudXBkYXRlZF9hdCB0bzoiLCBub3cpOwogIH0KICAgICAgY29uc29sZS5sb2coJzExNSBNZXJnZWQgaW5zdGFsbG1lbnRzIOKAlCBhbGwgTk9ULVBBSUQgKHBheW1lbnQgbm90IHlldCBjb25maXJtZWQgYXQgdGhpcyBzdGFnZSknKTsKCiAgaW5qZWN0U2V0dGxlbWVudEFtb3VudChleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKTsKCiAgcmV0dXJuIGV4aXN0aW5nUGF5bG9hZDsKICAKICB9
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      defaultPayload:
+        context:
+          domain: ONDC:FIS12
+          action: on_update
+          timestamp: 2026-05-18T06:34:18.885Z
+          transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
+          message_id: 4636f3e6-f9e4-46b6-b31c-34f2027bdb67
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.3
+          location:
+            country:
+              code: IND
+            city:
+              code: "*"
+        message:
+          order:
+            id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+            provider:
+              id: PROVIDER_ID
+              descriptor:
+                images:
+                  - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
+                    size_type: sm
+                name: ICICI Bank
+                short_desc: ICICI Bank Ltd
+                long_desc: ICICI Bank Ltd, India.
+              tags:
+                - descriptor:
+                    code: CONTACT_INFO
+                    name: Contact Info
+                  list:
+                    - descriptor:
+                        code: GRO_NAME
+                        name: Gro name
+                      value: ICICI
+                    - descriptor:
+                        code: GRO_EMAIL
+                        name: Gro email
+                      value: lifeline@iciciprulife.com
+                    - descriptor:
+                        code: GRO_CONTACT_NUMBER
+                        name: Gro contact number
+                      value: 1860 266 7766
+                    - descriptor:
+                        code: GRO_DESIGNATION
+                        name: Gro Designation
+                      value: Nodal Grievance Redressal Officer
+                    - descriptor:
+                        code: GRO_ADDRESS
+                        name: Gro Address
+                      value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                        Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+                    - descriptor:
+                        code: CUSTOMER_SUPPORT_LINK
+                        name: Customer support link
+                      value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+                    - descriptor:
+                        code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                        name: Customer support contact number
+                      value: 1800 1080
+                    - descriptor:
+                        code: CUSTOMER_SUPPORT_EMAIL
+                        name: Customer support email
+                      value: customer.care@icicibank.com
+                - descriptor:
+                    code: LSP_INFO
+                    name: Lsp Info
+                  list:
+                    - descriptor:
+                        code: LSP_NAME
+                        name: Lsp name
+                      value: ICICI_LSP
+                    - descriptor:
+                        code: LSP_EMAIL
+                        name: Lsp email
+                      value: lsp@iciciprulife.com
+                    - descriptor:
+                        code: LSP_CONTACT_NUMBER
+                        name: Lsp contact number
+                      value: 1860 266 7766
+                    - descriptor:
+                        code: LSP_ADDRESS
+                        name: Lsp Address
+                      value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                        Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+            items:
+              - id: ITEM_ID_PERSONAL_LOAN_1
+                descriptor:
+                  code: PERSONAL_LOAN
+                  name: Personal Loan without AA - Offline Journey
+                category_ids:
+                  - "101123"
+                  - "101124"
+                fulfillment_ids:
+                  - F1
+                price:
+                  currency: INR
+                  value: "234500"
+                tags:
+                  - descriptor:
+                      code: LOAN_INFO
+                      name: Loan Information
+                    list:
+                      - descriptor:
+                          code: INTEREST_RATE
+                          name: Interest Rate
+                          short_desc: Loans starting from 12% (p.a)
+                        value: 12%
+                      - descriptor:
+                          code: TERM
+                          name: Loan Term
+                          short_desc: Loans Duration 5 months
+                        value: 5 months
+                      - descriptor:
+                          code: INTEREST_RATE_TYPE
+                          name: Interest rate type
+                          short_desc: Fixed Interest type
+                        value: FIXED
+                      - descriptor:
+                          code: APPLICATION_FEE
+                          name: Application Fees
+                          short_desc: Application Fees
+                        value: 1000 INR
+                      - descriptor:
+                          code: FORECLOSURE_FEE
+                          name: Foreclosure Penalty
+                          short_desc: Loan Foreclosure Penalty
+                        value: 0.5%
+                      - descriptor:
+                          code: INTEREST_RATE_CONVERSION_CHARGE
+                          name: interest rate conversion charges
+                          short_desc: Interest rate conversion charges
+                        value: 1000 INR
+                      - descriptor:
+                          code: DELAY_PENALTY_FEE
+                          name: Delayed payments penalty
+                          short_desc: Delayed payments penalty
+                        value: 5%
+                      - descriptor:
+                          code: OTHER_PENALTY_FEE
+                          name: Other Penal Charges
+                          short_desc: Other Penal Charges
+                        value: 1%
+                      - descriptor:
+                          code: ANNUAL_PERCENTAGE_RATE
+                          name: Annual Percentage Rate
+                          short_desc: Effective annualized interest rate in percentage computed on net
+                            disbursed amount using IRR approach and reducing
+                            balance method
+                        value: 5%
+                      - descriptor:
+                          code: REPAYMENT_FREQUENCY
+                          name: Repayment Frequency
+                          short_desc: Repayment Frequency by borrower
+                        value: MONTHLY
+                      - descriptor:
+                          code: NUMBER_OF_INSTALLMENTS_OF_REPAYMENT
+                          name: Number of installments of repayment
+                          short_desc: Number of installments borrower has to make to payback the loan
+                        value: "45"
+                      - descriptor:
+                          code: TNC_LINK
+                          name: Terms & Conditions
+                          short_desc: Terms and Conditions
+                        value: https://icicibank.com/loan/tnc.html
+                      - descriptor:
+                          code: COOL_OFF_PERIOD
+                          name: cool off period
+                          short_desc: Cooling off/look-up period during which borrower shall not be
+                            charged any penalty
+                        value: P30D
+                      - descriptor:
+                          code: INSTALLMENT_AMOUNT
+                          name: Installment amount
+                          short_desc: Each installment amount of repayment
+                        value: "46360"
+                      - descriptor:
+                          code: KFS_LINK
+                          name: Key Facts Statement Link
+                          short_desc: A link provided by the BPP points to a Key Fact Statement (KFS)
+                            document related to a loan. When accessed, the
+                            document is returned in text/html format, with the
+                            loan details organized in a standard HTML table.
+                            This format makes it easy for the buyer's app to
+                            read and reformat the information as needed. For
+                            more details, refer to the "KFS_LINK format"
+                            document in the "feature-ui" section.
+                        value: https://icicibank.com/loan/kfs-terms
+                    display: true
+            quote:
+              id: LOAN_LEAD_ID_OR_SIMILAR
+              price:
+                currency: INR
+                value: "224800"
+              breakup:
+                - title: PRINCIPAL
+                  price:
+                    value: "80720"
+                    currency: INR
+                - title: INSURANCE_CHARGES
+                  price:
+                    value: "500"
+                    currency: INR
+                - title: INTEREST
+                  price:
+                    value: "12000"
+                    currency: INR
+                - title: PROCESSING_FEE
+                  price:
+                    value: "1800"
+                    currency: INR
+                - title: OTHER_CHARGES
+                  price:
+                    value: "0"
+                    currency: INR
+                - title: NET_DISBURSED_AMOUNT
+                  price:
+                    value: "197700"
+                    currency: INR
+                - title: OUTSTANDING_PRINCIPAL
+                  price:
+                    value: "119280"
+                    currency: INR
+                - title: OUTSTANDING_INTEREST
+                  price:
+                    value: "6000"
+                    currency: INR
+                - title: PRE_PAYMENT_CHARGE
+                  price:
+                    value: "4500"
+                    currency: INR
+              ttl: PT15D
+            fulfillments:
+              - id: F1
+                type: LOAN
+                customer:
+                  person:
+                    name: John Doe
+                  contact:
+                    phone: +91-9999999999
+                    email: john.doe@example.com
+                state:
+                  descriptor:
+                    code: DISBURSED
+                tags:
+                  - descriptor:
+                      name: Checklist
+                      code: CHECKLISTS
+                    display: false
+                    list:
+                      - descriptor:
+                          code: PERSONAL_INFORMATION
+                          name: Personal Information
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: LOAN_OFFER
+                          name: Loan Offer
+                        value: SELECTED
+                      - descriptor:
+                          code: JOURNEY_OFFLINE
+                          name: Journey Offline
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: KYC
+                          name: OFFLINE
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: REPAYMENT
+                          name: E-MANDATE
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: BANK_ACCOUNT_VERIFICATION
+                          name: PENNY DROP
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: LOAN_AGREEMENT
+                          name: CLICKWRAP
+                        value: SUCCESSFUL
+            payments:
+              - id: LOAN_DISBURSMENT_ID
+                url: https://pg.icici.com/?amount=92720&ref_id=b5487595-42c3-4e20-bd43-ae21400f60f0
+                params:
+                  amount: "92720"
+                  currency: INR
+                status: NOT-PAID
+                time:
+                  label: PRE_PART_PAYMENT
+                type: POST_FULFILLMENT
+              - type: ON_FULFILLMENT
+                id: LOAN_DISBURSMENT_ID
+                status: PAID
+                collected_by: CONSUMER
+                time:
+                  label: LOAN_DISBURSMENT
+                  timestamp: 2023-05-25T05:23:03.443Z
+                params:
+                  bank_code: XXXXXXXX
+                  bank_account_number: xxxxxxxxxxxxxx
+                  transaction_id: 4429e52c-5d41-4e24-ac2e-42eb2fa8f72b
+                  amount: "197700"
+                  currency: INR
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-06-01T00:00:00.000Z
+                    end: 2023-06-30T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-07-01T00:00:00.000Z
+                    end: 2023-07-31T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: NOT-PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-08-01T00:00:00.000Z
+                    end: 2023-08-31T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: NOT-PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-09-01T00:00:00.000Z
+                    end: 2023-09-30T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: NOT-PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-10-01T00:00:00.000Z
+                    end: 2023-10-31T23:59:59.999Z
+            cancellation_terms:
+              - fulfillment_state:
+                  descriptor:
+                    code: SANCTIONED
+                cancellation_fee:
+                  percentage: 3%
+              - external_ref:
+                  mimetype: text/html
+                  url: https://icicibank.com/loan/tnc.html
+              - fulfillment_state:
+                  descriptor:
+                    code: DISBURSED
+                cancellation_fee:
+                  percentage: 5%
+            documents:
+              - descriptor:
+                  code: LOAN_AGREEMENT
+                  name: Loan Agreement Document
+                  short_desc: Download your Loan Agreement document here
+                  long_desc: A Loan Agreement Document is a legal contract outlining terms such as
+                    loan amount, interest rate, repayment schedule, and
+                    collateral, binding a lender and borrower in a formal
+                    financial arrangement.
+                mime_type: application/pdf
+                url: https://lender.com/loan/loan-agreement/O1.pdf
+              - descriptor:
+                  code: LOAN_CANCELLATION
+                  name: Loan Cancellation Document
+                  short_desc: Download your Loan Cancellation document here
+                  long_desc: A Loan Cancellation Document is a formal agreement used to terminate
+                    an existing loan, releasing the borrower from repayment
+                    obligations and confirming the loan's cancellation.
+                mime_type: application/pdf
+                url: https://lender.com/loan/loan-cancellation/O1.pdf
+            created_at: 2023-05-25T05:23:03.443Z
+            updated_at: 2023-05-25T05:23:03.443Z
+      saveData:
+        transactionId: $.context.transaction_id
+        latestMessage_id: $.context.message_id
+        latestTimestamp: $.context.timestamp
+        bapId: $.context.bap_id
+        bapUri: $.context.bap_uri
+        bppId: $.context.bpp_id
+        bppUri: $.context.bpp_uri
+        city_code: $.context.location.city.code
+        payment_url_form: $.message.order.payments[0].url
+        order: $.message.order
+      inputs: {}
+    examples:
+      - name: example for on_update
+        payload:
+          context:
+            domain: ONDC:FIS12
+            action: on_update
+            timestamp: 2026-05-18T06:47:42.893Z
+            transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
+            message_id: 771cae8b-8df5-45b8-a6be-a0cf10152ffd
+            bap_id: bap.example.com
+            bap_uri: https://bap.example.com
+            ttl: PT30S
+            bpp_id: bpp.example.com
+            bpp_uri: https://bpp.example.com
+            version: 2.0.3
+            location:
+              country:
+                code: IND
+              city:
+                code: "*"
+          message:
+            order:
+              id: LOAN_ORDER_1779086861504_DEFAULT
+              provider:
+                id: personal_loan_provider_0c043643-3073-426a-851d-c733be2a4e0f
                 descriptor:
                   images:
                     - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -3256,7 +4121,12 @@ steps:
                 - id: ITEM_ID_PERSONAL_LOAN_2
                   descriptor:
                     code: PERSONAL_LOAN
-                    name: Personal Loan
+                    name: Personal Loan without AA - Offline Journey
+                  category_ids:
+                    - "101123"
+                    - "101124"
+                  fulfillment_ids:
+                    - F1
                   price:
                     currency: INR
                     value: "233900"
@@ -3264,7 +4134,6 @@ steps:
                     - descriptor:
                         code: LOAN_INFO
                         name: Loan Information
-                      display: true
                       list:
                         - descriptor:
                             code: INTEREST_RATE
@@ -3309,7 +4178,9 @@ steps:
                         - descriptor:
                             code: ANNUAL_PERCENTAGE_RATE
                             name: Annual Percentage Rate
-                            short_desc: Effective annualized interest rate in percentage
+                            short_desc: Effective annualized interest rate in percentage computed on net
+                              disbursed amount using IRR approach and reducing
+                              balance method
                           value: 5%
                         - descriptor:
                             code: REPAYMENT_FREQUENCY
@@ -3319,8 +4190,8 @@ steps:
                         - descriptor:
                             code: NUMBER_OF_INSTALLMENTS_OF_REPAYMENT
                             name: Number of installments of repayment
-                            short_desc: Number borrower must repay
-                          value: "5"
+                            short_desc: Number of installments borrower has to make to payback the loan
+                          value: "45"
                         - descriptor:
                             code: TNC_LINK
                             name: Terms & Conditions
@@ -3329,55 +4200,74 @@ steps:
                         - descriptor:
                             code: COOL_OFF_PERIOD
                             name: cool off period
-                            short_desc: Cooling off / look-up period
+                            short_desc: Cooling off/look-up period during which borrower shall not be
+                              charged any penalty
                           value: P30D
                         - descriptor:
                             code: INSTALLMENT_AMOUNT
                             name: Installment amount
-                            short_desc: Each installment amount
+                            short_desc: Each installment amount of repayment
                           value: "46360"
                         - descriptor:
                             code: KFS_LINK
                             name: Key Facts Statement Link
-                            short_desc: KFS details in HTML table format
+                            short_desc: A link provided by the BPP points to a Key Fact Statement (KFS)
+                              document related to a loan. When accessed, the
+                              document is returned in text/html format, with the
+                              loan details organized in a standard HTML table.
+                              This format makes it easy for the buyer's app to
+                              read and reformat the information as needed. For
+                              more details, refer to the "KFS_LINK format"
+                              document in the "feature-ui" section.
                           value: https://icicibank.com/loan/kfs-terms
+                      display: true
               quote:
                 id: bcaa0931-47d7-42c9-aa83-3fb2b5048551
                 price:
                   currency: INR
-                  value: "233900"
+                  value: "232300"
                 breakup:
                   - title: PRINCIPAL
                     price:
-                      value: "200000"
-                      currency: INR
-                  - title: INTEREST
-                    price:
-                      value: "30000"
-                      currency: INR
-                  - title: PROCESSING_FEE
-                    price:
-                      value: "1800"
-                      currency: INR
-                  - title: OTHER_UPFRONT_CHARGES
-                    price:
-                      value: "0"
+                      value: "80720"
                       currency: INR
                   - title: INSURANCE_CHARGES
                     price:
                       value: "500"
                       currency: INR
-                  - title: NET_DISBURSED_AMOUNT
+                  - title: INTEREST
                     price:
-                      value: "197700"
+                      value: "12000"
+                      currency: INR
+                  - title: PROCESSING_FEE
+                    price:
+                      value: "1800"
                       currency: INR
                   - title: OTHER_CHARGES
                     price:
                       value: "0"
                       currency: INR
-                ttl: P15D
+                  - title: NET_DISBURSED_AMOUNT
+                    price:
+                      value: "197700"
+                      currency: INR
+                  - title: OUTSTANDING_PRINCIPAL
+                    price:
+                      value: "119280"
+                      currency: INR
+                  - title: OUTSTANDING_INTEREST
+                    price:
+                      value: "6000"
+                      currency: INR
+                  - title: PRE_PAYMENT_CHARGE
+                    price:
+                      value: "4500"
+                      currency: INR
+                ttl: PT15D
               fulfillments:
-                - customer:
+                - id: F1
+                  type: LOAN
+                  customer:
                     person:
                       name: John Doe
                     contact:
@@ -3385,9 +4275,51 @@ steps:
                       email: john.doe@example.com
                   state:
                     descriptor:
-                      code: SANCTIONED
-                      name: Loan Disbursed
-              payments: []
+                      code: DISBURSED
+                  tags:
+                    - descriptor:
+                        name: Checklist
+                        code: CHECKLISTS
+                      display: false
+                      list:
+                        - descriptor:
+                            code: PERSONAL_INFORMATION
+                            name: Personal Information
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: LOAN_OFFER
+                            name: Loan Offer
+                          value: SELECTED
+                        - descriptor:
+                            code: JOURNEY_OFFLINE
+                            name: Journey Offline
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: KYC
+                            name: OFFLINE
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: REPAYMENT
+                            name: E-MANDATE
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: BANK_ACCOUNT_VERIFICATION
+                            name: PENNY DROP
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: LOAN_AGREEMENT
+                            name: CLICKWRAP
+                          value: SUCCESSFUL
+              payments:
+                - id: LOAN_DISBURSMENT_ID
+                  url: undefined/forms/ONDC:FIS12/payment_url_form/?transaction_id=37495a18-da5d-42d2-ad74-db69a22618fe&session_id=undefined
+                  params:
+                    amount: undefined
+                    currency: INR
+                  status: NOT-PAID
+                  time:
+                    label: PRE_PART_PAYMENT
+                  type: POST_FULFILLMENT
               cancellation_terms:
                 - fulfillment_state:
                     descriptor:
@@ -3396,7 +4328,7 @@ steps:
                     percentage: 3%
                 - external_ref:
                     mimetype: text/html
-                    url: https://bpp.credit.becknprotocol.org/tnc.html
+                    url: https://icicibank.com/loan/tnc.html
                 - fulfillment_state:
                     descriptor:
                       code: DISBURSED
@@ -3407,11 +4339,857 @@ steps:
                     code: LOAN_AGREEMENT
                     name: Loan Agreement Document
                     short_desc: Download your Loan Agreement document here
-                    long_desc: A Loan Agreement Document is a legal contract outlining terms...
+                    long_desc: A Loan Agreement Document is a legal contract outlining terms such as
+                      loan amount, interest rate, repayment schedule, and
+                      collateral, binding a lender and borrower in a formal
+                      financial arrangement.
                   mime_type: application/pdf
                   url: https://lender.com/loan/loan-agreement/O1.pdf
-              created_at: 2026-05-18T03:35:14.249Z
-              updated_at: 2026-05-18T03:35:14.249Z
+                - descriptor:
+                    code: LOAN_CANCELLATION
+                    name: Loan Cancellation Document
+                    short_desc: Download your Loan Cancellation document here
+                    long_desc: A Loan Cancellation Document is a formal agreement used to terminate
+                      an existing loan, releasing the borrower from repayment
+                      obligations and confirming the loan's cancellation.
+                  mime_type: application/pdf
+                  url: https://lender.com/loan/loan-cancellation/O1.pdf
+              created_at: 2026-05-18T06:47:41.504Z
+              updated_at: 2026-05-18T06:47:42.900Z
+        type: request
+        description: please add relevant description
+  - api: dynamic_form
+    action_id: payment_url_form
+    owner: BPP
+    responseFor: null
+    unsolicited: false
+    description: please add relevant description
+    mock:
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      defaultPayload: {}
+      saveData: {}
+      inputs: {}
+      formHtml: PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KCjxoZWFkPgogIDxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+CiAgPHRpdGxlPlZlcmlmaWNhdGlvbiBTdGF0dXM8L3RpdGxlPgogIDxzdHlsZT4KICAgICogewogICAgICBtYXJnaW46IDA7CiAgICAgIHBhZGRpbmc6IDA7CiAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICB9CgogICAgYm9keSB7CiAgICAgIGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgJ0hlbHZldGljYSBOZXVlJywgQXJpYWwsIHNhbnMtc2VyaWY7CiAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxMzVkZWcsICM2NjdlZWEgMCUsICM3NjRiYTIgMTAwJSk7CiAgICAgIG1pbi1oZWlnaHQ6IDEwMHZoOwogICAgICBkaXNwbGF5OiBmbGV4OwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgcGFkZGluZzogMjBweDsKICAgIH0KCiAgICAuZm9ybS1jb250YWluZXIgewogICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmOwogICAgICBwYWRkaW5nOiA0MHB4OwogICAgICBib3JkZXItcmFkaXVzOiAxNnB4OwogICAgICBib3gtc2hhZG93OiAwIDEwcHggNDBweCByZ2JhKDAsIDAsIDAsIDAuMTUpOwogICAgICB3aWR0aDogMTAwJTsKICAgICAgbWF4LXdpZHRoOiA1MDBweDsKICAgICAgYW5pbWF0aW9uOiBzbGlkZVVwIDAuNHMgZWFzZS1vdXQ7CiAgICB9CgogICAgQGtleWZyYW1lcyBzbGlkZVVwIHsKICAgICAgZnJvbSB7CiAgICAgICAgb3BhY2l0eTogMDsKICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMjBweCk7CiAgICAgIH0KICAgICAgdG8gewogICAgICAgIG9wYWNpdHk6IDE7CiAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDApOwogICAgICB9CiAgICB9CgogICAgaDEgewogICAgICBjb2xvcjogIzJkMzc0ODsKICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICBtYXJnaW4tYm90dG9tOiA4cHg7CiAgICAgIGZvbnQtc2l6ZTogMjhweDsKICAgICAgZm9udC13ZWlnaHQ6IDcwMDsKICAgIH0KCiAgICAuc3VidGl0bGUgewogICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgIGNvbG9yOiAjNzE4MDk2OwogICAgICBtYXJnaW4tYm90dG9tOiAzMnB4OwogICAgICBmb250LXNpemU6IDE0cHg7CiAgICB9CgogICAgLmZvcm0tZ3JvdXAgewogICAgICBtYXJnaW4tYm90dG9tOiAyNHB4OwogICAgfQoKICAgIGxhYmVsIHsKICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgIG1hcmdpbi1ib3R0b206IDEwcHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7CiAgICAgIGNvbG9yOiAjMmQzNzQ4OwogICAgICBmb250LXNpemU6IDE1cHg7CiAgICB9CgogICAgLnJlcXVpcmVkLWluZGljYXRvciB7CiAgICAgIGNvbG9yOiAjZTUzZTNlOwogICAgICBtYXJnaW4tbGVmdDogNHB4OwogICAgfQoKICAgIHNlbGVjdCB7CiAgICAgIHdpZHRoOiAxMDAlOwogICAgICBwYWRkaW5nOiAxNHB4IDE2cHg7CiAgICAgIGJvcmRlcjogMnB4IHNvbGlkICNlMmU4ZjA7CiAgICAgIGJvcmRlci1yYWRpdXM6IDhweDsKICAgICAgZm9udC1zaXplOiAxNnB4OwogICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmOwogICAgICBjb2xvcjogIzJkMzc0ODsKICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlOwogICAgICBhcHBlYXJhbmNlOiBub25lOwogICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB3aWR0aD0nMTInIGhlaWdodD0nMTInIHZpZXdCb3g9JzAgMCAxMiAxMiclM0UlM0NwYXRoIGZpbGw9JyUyMzRhNTU2OCcgZD0nTTYgOUwxIDRoMTB6Jy8lM0UlM0Mvc3ZnJTNFIik7CiAgICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7CiAgICAgIGJhY2tncm91bmQtcG9zaXRpb246IHJpZ2h0IDE2cHggY2VudGVyOwogICAgICBwYWRkaW5nLXJpZ2h0OiA0MHB4OwogICAgfQoKICAgIHNlbGVjdDpob3ZlciB7CiAgICAgIGJvcmRlci1jb2xvcjogI2NiZDVlMDsKICAgIH0KCiAgICBzZWxlY3Q6Zm9jdXMgewogICAgICBvdXRsaW5lOiBub25lOwogICAgICBib3JkZXItY29sb3I6ICM2NjdlZWE7CiAgICAgIGJveC1zaGFkb3c6IDAgMCAwIDNweCByZ2JhKDEwMiwgMTI2LCAyMzQsIDAuMSk7CiAgICB9CgogICAgc2VsZWN0IG9wdGlvbiB7CiAgICAgIHBhZGRpbmc6IDEycHg7CiAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7CiAgICAgIGNvbG9yOiAjMmQzNzQ4OwogICAgfQoKICAgIC5zdWJtaXQtYnRuIHsKICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgY29sb3I6IHdoaXRlOwogICAgICBwYWRkaW5nOiAxNnB4IDMycHg7CiAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgYm9yZGVyLXJhZGl1czogOHB4OwogICAgICBmb250LXNpemU6IDE2cHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7CiAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgd2lkdGg6IDEwMCU7CiAgICAgIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2U7CiAgICAgIGJveC1zaGFkb3c6IDAgNHB4IDEycHggcmdiYSgxMDIsIDEyNiwgMjM0LCAwLjMpOwogICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOwogICAgICBsZXR0ZXItc3BhY2luZzogMC41cHg7CiAgICB9CgogICAgLnN1Ym1pdC1idG46aG92ZXIgewogICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTJweCk7CiAgICAgIGJveC1zaGFkb3c6IDAgNnB4IDIwcHggcmdiYSgxMDIsIDEyNiwgMjM0LCAwLjQpOwogICAgfQoKICAgIC5zdWJtaXQtYnRuOmFjdGl2ZSB7CiAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsKICAgIH0KCiAgICAuc3VibWl0LWJ0bjpkaXNhYmxlZCB7CiAgICAgIG9wYWNpdHk6IDAuNjsKICAgICAgY3Vyc29yOiBub3QtYWxsb3dlZDsKICAgICAgdHJhbnNmb3JtOiBub25lOwogICAgfQoKICAgIC5zdGF0dXMtaWNvbiB7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICBtYXJnaW4tYm90dG9tOiAyMHB4OwogICAgfQoKICAgIC5zdGF0dXMtaWNvbiBzdmcgewogICAgICB3aWR0aDogNjRweDsKICAgICAgaGVpZ2h0OiA2NHB4OwogICAgICBjb2xvcjogIzY2N2VlYTsKICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgLmZvcm0tY29udGFpbmVyIHsKICAgICAgICBwYWRkaW5nOiAzMHB4IDI0cHg7CiAgICAgIH0KCiAgICAgIGgxIHsKICAgICAgICBmb250LXNpemU6IDI0cHg7CiAgICAgIH0KICAgIH0KICA8L3N0eWxlPgo8L2hlYWQ+Cgo8Ym9keT4KICA8Zm9ybSBpZD0icGF5bWVudF91cmxfZm9ybSIgbWV0aG9kPSJQT1NUIiBhY3Rpb249IjwlPSBhY3Rpb25VcmwgJT4iPgogICAgIAogICAgICAgIDxsYWJlbCBmb3I9ImlkVHlwZSI+CiAgICAgICAgICBQYXltZW50IFN0YXR1cwogICAgICAgICAgPHNwYW4gY2xhc3M9InJlcXVpcmVkLWluZGljYXRvciI+Kjwvc3Bhbj4KICAgICAgICA8L2xhYmVsPgogICAgICAgIDxzZWxlY3QgaWQ9ImlkVHlwZSIgbmFtZT0iaWRUeXBlIiByZXF1aXJlZD4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9IlBBSUQiPlBBSUQ8L29wdGlvbj4KICAgICAgICAgIDxvcHRpb24gdmFsdWU9Ik5PVC1QQUlEIj5OT1QtUEFJRDwvb3B0aW9uPgogICAgICAgIDwvc2VsZWN0PgogICAgCgogICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9InN1Ym1pdC1idG4iPlN1Ym1pdDwvYnV0dG9uPgogICAgPC9mb3JtPgoKPC9ib2R5PgoKPC9odG1sPgo=
+    examples:
+      - name: example for dynamic_form
+        payload:
+          idType: PAID
+        type: request
+        description: please add relevant description
+  - api: on_update
+    action_id: on_update_unsolicitated
+    owner: BPP
+    responseFor: null
+    unsolicited: false
+    description: please add relevant description
+    mock:
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKSB7CiBjb25zdCBwYXltZW50U3RhdHVzID0gc2Vzc2lvbkRhdGE/LmZvcm1fZGF0YT8ucGF5bWVudF91cmxfZm9ybT8uaWRUeXBlIHx8ICdQQUlEJzsKICBjb25zdCBvcmRlciA9IGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLm9yZGVyOwoKICBpZiAoZXhpc3RpbmdQYXlsb2FkLmNvbnRleHQpIHsKICAgIGV4aXN0aW5nUGF5bG9hZC5jb250ZXh0Lm1lc3NhZ2VfaWQgPSB1dWlkdjQoKTsKICB9CgogIGlmICgoIUFycmF5LmlzQXJyYXkob3JkZXIucGF5bWVudHMpIHx8IG9yZGVyLnBheW1lbnRzLmxlbmd0aCA9PT0gMCkgJiYgc2Vzc2lvbkRhdGE/Lm9yZGVyPy5wYXltZW50cz8ubGVuZ3RoKSB7CiAgICBvcmRlci5wYXltZW50cyA9IHNlc3Npb25EYXRhLm9yZGVyPy5bMF0/LnBheW1lbnRzOwogIH0KIGlmIChzZXNzaW9uRGF0YT8ub3JkZXI/LnBheW1lbnRzPy5sZW5ndGggPiAwKSB7CiAgICBjb25zdCBzZXNzaW9uUGF5bWVudHMgPSBzZXNzaW9uRGF0YS5vcmRlcj8uWzBdPy5wYXltZW50czsKICAgY29uc3QgaW5zdGFsbG1lbnRzRnJvbVNlc3Npb24gPSBzZXNzaW9uUGF5bWVudHMuZmlsdGVyKAogICAgICAocCkgPT4gcC50eXBlID09PSAnUE9TVF9GVUxGSUxMTUVOVCcgJiYgcC50aW1lPy5sYWJlbCA9PT0gJ0lOU1RBTExNRU5UJwogICAgKTsKIGNvbnN0IG9uT3JkZXJGcm9tU2Vzc2lvbiA9IHNlc3Npb25QYXltZW50cy5maW5kKAogICAgICAocCkgPT4gcC50eXBlID09PSAnT05fT1JERVInCiAgICApOwoKICAgIGNvbnN0IHByZVBhcnRQYXltZW50RnJvbVNlc3Npb24gPSBzZXNzaW9uUGF5bWVudHMuZmluZCgKICAgICAgKHApID0+IHAudHlwZSA9PT0gJ1BPU1RfRlVMRklMTE1FTlQnICYmIHAudGltZT8ubGFiZWwgPT09ICdQUkVfUEFSVF9QQVlNRU5UJwogICAgKTsKCiAgICBjb25zdCByZWJ1aWx0UGF5bWVudHM9IFtdOwogICAgaWYgKHByZVBhcnRQYXltZW50RnJvbVNlc3Npb24pIHsKICAgICAgY29uc3QgeyB1cmwsIC4uLnByZVBhcnRXaXRob3V0VXJsIH0gPSBwcmVQYXJ0UGF5bWVudEZyb21TZXNzaW9uOwogICAgICByZWJ1aWx0UGF5bWVudHMucHVzaCh7CiAgICAgICAgLi4ucHJlUGFydFdpdGhvdXRVcmwsCiAgICAgICAgc3RhdHVzOiBwYXltZW50U3RhdHVzICAgICAgICB9KTsKICAgICAgY29uc29sZS5sb2coYFByZXNlcnZlZCBQUkVfUEFSVF9QQVlNRU5ULCB1cGRhdGVkIHN0YXR1cyB0byAke3BheW1lbnRTdGF0dXN9LCByZW1vdmVkIHVybGApOwogICAgfQoKICAgICAgIGlmIChvbk9yZGVyRnJvbVNlc3Npb24pIHsKICAgICAgY29uc3QgdXBkYXRlZE9uT3JkZXIgPSB7CiAgICAgICAgLi4ub25PcmRlckZyb21TZXNzaW9uLAogICAgICAgIHN0YXR1czogJ1BBSUQnICAgICAgICB9OwogICAgICByZWJ1aWx0UGF5bWVudHMucHVzaCh1cGRhdGVkT25PcmRlcik7CiAgICAgIGNvbnNvbGUubG9nKCdQcmVzZXJ2ZWQgT05fT1JERVIgcGF5bWVudCBmcm9tIHNlc3Npb24gd2l0aCB1bmlxdWUgSUQgYW5kIHVwZGF0ZWQgc3RhdHVzIHRvIFBBSUQnKTsKICAgIH0KCiAgICBpZiAoaW5zdGFsbG1lbnRzRnJvbVNlc3Npb24ubGVuZ3RoID4gMCkgewogICAgICBjb25zb2xlLmxvZyhgRm91bmQgJHtpbnN0YWxsbWVudHNGcm9tU2Vzc2lvbi5sZW5ndGh9IGluc3RhbGxtZW50cyBmb3IgcHJlLXBhcnQgcGF5bWVudCB1bnNvbGljaXRlZCDigJQgdXBkYXRpbmcgaW5kZXggMCBhbmQgMSB0byBERUZFUlJFRGApOwoKICAgICAgY29uc3QgdXBkYXRlZEluc3RhbGxtZW50cyA9IGluc3RhbGxtZW50c0Zyb21TZXNzaW9uLm1hcCgoaW5zdGFsbG1lbnQsIGluZGV4KSA9PiB7CiAgICAgICAgaWYgKGluZGV4ID09PSAwIHx8IGluZGV4ID09PSAxKSB7CiAgICAgICAgICByZXR1cm4geyAuLi5pbnN0YWxsbWVudCwgc3RhdHVzOiAnREVGRVJSRUQnIH07CiAgICAgICAgfQogICAgICAgIHJldHVybiBpbnN0YWxsbWVudDsKICAgICAgfSk7CgogICAgICByZWJ1aWx0UGF5bWVudHMucHVzaCguLi51cGRhdGVkSW5zdGFsbG1lbnRzKTsKICAgICAgY29uc29sZS5sb2coJ1VwZGF0ZWQgaW5zdGFsbG1lbnRzOiBpbmRleCAwICYgMSDihpIgREVGRVJSRUQsIHJlc3Qga2VwdCBhcy1pcyBmcm9tIHNlc3Npb24nKTsKICAgIH0KCiAgICBvcmRlci5wYXltZW50cyA9IHJlYnVpbHRQYXltZW50czsKICB9CgogIGlmIChzZXNzaW9uRGF0YT8ub3JkZXJfaWQpIG9yZGVyLmlkID0gc2Vzc2lvbkRhdGEub3JkZXJfaWRbMF07CiAgZWxzZSBpZiAoIW9yZGVyLmlkIHx8IG9yZGVyLmlkID09PSAiTE9BTl9MRUFEX0lEX09SX1NJTUlMQVJfT1JERVJfSUQiIHx8IFN0cmluZyhvcmRlci5pZCkuc3RhcnRzV2l0aCgiTE9BTl9MRUFEX0lEIikpIHsKICAgIG9yZGVyLmlkID0gYHBlcnNvbmFsX2xvYW5fJHt1dWlkdjQoKX1gOwogIH0KICBpZiAob3JkZXIucHJvdmlkZXIpIHsKICAgIGlmIChzZXNzaW9uRGF0YT8uc2VsZWN0ZWRfcHJvdmlkZXI/LmlkKSBvcmRlci5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnNlbGVjdGVkX3Byb3ZpZGVyPy5bMF0/LmlkOwogICAgZWxzZSBpZiAoIW9yZGVyLnByb3ZpZGVyLmlkIHx8IG9yZGVyLnByb3ZpZGVyLmlkID09PSAiUFJPVklERVJfSUQiIHx8IFN0cmluZyhvcmRlci5wcm92aWRlci5pZCkuc3RhcnRzV2l0aCgiUFJPVklERVJfSUQiKSkgewogICAgICBvcmRlci5wcm92aWRlci5pZCA9IGBwZXJzb25hbF9sb2FuX3Byb3ZpZGVyXyR7dXVpZHY0KCl9YDsKICAgIH0KICB9CgogIGNvbnN0IHNlbGVjdGVkSXRlbSA9IHNlc3Npb25EYXRhPy5pdGVtWzBdIHx8IChBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhPy5pdGVtcykgPyBzZXNzaW9uRGF0YS5pdGVtc1swXSA6IHVuZGVmaW5lZCk7CiAgaWYgKG9yZGVyLml0ZW1zPy5bMF0pIHsKICAgIG9yZGVyLml0ZW1zWzBdLnByaWNlID0gc2Vzc2lvbkRhdGEub3JkZXI/LlswXT8uaXRlbXNbMF0ucHJpY2UKICAgIGlmIChzZWxlY3RlZEl0ZW0/LmlkKSBvcmRlci5pdGVtc1swXS5pZCA9IHNlbGVjdGVkSXRlbS5pZDsKICAgIGVsc2UgaWYgKCFvcmRlci5pdGVtc1swXS5pZCB8fCBTdHJpbmcob3JkZXIuaXRlbXNbMF0uaWQpLnN0YXJ0c1dpdGgoIklURU1fSURfUEVSU09OQUxfTE9BTiIpIHx8IFN0cmluZyhvcmRlci5pdGVtc1swXS5pZCkuc3RhcnRzV2l0aCgiSVRFTV9JRF9HT0xEX0xPQU4iKSkgewogICAgICBvcmRlci5pdGVtc1swXS5pZCA9IGBwZXJzb25hbF9sb2FuX2l0ZW1fJHt1dWlkdjQoKX1gOwogICAgfQogIH0KCiAgaWYgKG9yZGVyLnF1b3RlKSB7CiAgICBjb25zdCBxdW90ZUlkID0gc2Vzc2lvbkRhdGE/LnF1b3RlX2lkWzBdIHx8IHNlc3Npb25EYXRhPy5vcmRlcj8ucXVvdGU/LmlkIHx8IHNlc3Npb25EYXRhPy5xdW90ZT8uaWQ7CiAgICBpZiAocXVvdGVJZCkgb3JkZXIucXVvdGUuaWQgPSBxdW90ZUlkOwogICAgZWxzZSBpZiAoIW9yZGVyLnF1b3RlLmlkIHx8IG9yZGVyLnF1b3RlLmlkID09PSAiYmNhYTA5MzEtNDdkNy00MmM5LWFhODMtM2ZiMmI1MDQ4NTUxIiB8fCBTdHJpbmcob3JkZXIucXVvdGUuaWQpLnN0YXJ0c1dpdGgoIkxPQU5fTEVBRF9JRCIpKSB7CiAgICAgIG9yZGVyLnF1b3RlLmlkID0gYHBlcnNvbmFsX2xvYW5fcXVvdGVfJHt1dWlkdjQoKX1gOwogICAgfQogIH0KCiAgaWYgKGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlPy5vcmRlcikgewogICAgY29uc3Qgbm93ID0gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuY3JlYXRlZF9hdCA9IHNlc3Npb25EYXRhLm9yZGVyPy5bMF0/LmNyZWF0ZWRfYXQ7CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0ID0gbm93OwogICAgY29uc29sZS5sb2coIlNldCBvcmRlci5jcmVhdGVkX2F0IGFuZCBvcmRlci51cGRhdGVkX2F0IHRvOiIsIG5vdyk7CiAgfQoKICBpbmplY3RTZXR0bGVtZW50QW1vdW50KGV4aXN0aW5nUGF5bG9hZCwgc2Vzc2lvbkRhdGEpOwoKICByZXR1cm4gZXhpc3RpbmdQYXlsb2FkOwp9
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      defaultPayload:
+        context:
+          domain: ONDC:FIS12
+          action: on_update
+          timestamp: 2026-05-18T06:35:53.080Z
+          transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
+          message_id: 7b654b6c-ce5f-477a-9022-af3ef8fe0265
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.3
+          location:
+            country:
+              code: IND
+            city:
+              code: "*"
+        message:
+          order:
+            id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+            provider:
+              id: PROVIDER_ID
+              descriptor:
+                images:
+                  - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
+                    size_type: sm
+                name: ICICI Bank
+                short_desc: ICICI Bank Ltd
+                long_desc: ICICI Bank Ltd, India.
+              tags:
+                - descriptor:
+                    code: CONTACT_INFO
+                    name: Contact Info
+                  list:
+                    - descriptor:
+                        code: GRO_NAME
+                        name: Gro name
+                      value: ICICI
+                    - descriptor:
+                        code: GRO_EMAIL
+                        name: Gro email
+                      value: lifeline@iciciprulife.com
+                    - descriptor:
+                        code: GRO_CONTACT_NUMBER
+                        name: Gro contact number
+                      value: 1860 266 7766
+                    - descriptor:
+                        code: GRO_DESIGNATION
+                        name: Gro Designation
+                      value: Nodal Grievance Redressal Officer
+                    - descriptor:
+                        code: GRO_ADDRESS
+                        name: Gro Address
+                      value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                        Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+                    - descriptor:
+                        code: CUSTOMER_SUPPORT_LINK
+                        name: Customer support link
+                      value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+                    - descriptor:
+                        code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                        name: Customer support contact number
+                      value: 1800 1080
+                    - descriptor:
+                        code: CUSTOMER_SUPPORT_EMAIL
+                        name: Customer support email
+                      value: customer.care@icicibank.com
+                - descriptor:
+                    code: LSP_INFO
+                    name: Lsp Info
+                  list:
+                    - descriptor:
+                        code: LSP_NAME
+                        name: Lsp name
+                      value: ICICI_LSP
+                    - descriptor:
+                        code: LSP_EMAIL
+                        name: Lsp email
+                      value: lsp@iciciprulife.com
+                    - descriptor:
+                        code: LSP_CONTACT_NUMBER
+                        name: Lsp contact number
+                      value: 1860 266 7766
+                    - descriptor:
+                        code: LSP_ADDRESS
+                        name: Lsp Address
+                      value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                        Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+            items:
+              - id: ITEM_ID_PERSONAL_LOAN_1
+                descriptor:
+                  code: PERSONAL_LOAN
+                  name: Personal Loan without AA - Offline Journey
+                category_ids:
+                  - "101123"
+                  - "101124"
+                fulfillment_ids:
+                  - F1
+                price:
+                  currency: INR
+                  value: "234500"
+                tags:
+                  - descriptor:
+                      code: LOAN_INFO
+                      name: Loan Information
+                    list:
+                      - descriptor:
+                          code: INTEREST_RATE
+                          name: Interest Rate
+                          short_desc: Loans starting from 12% (p.a)
+                        value: 12%
+                      - descriptor:
+                          code: TERM
+                          name: Loan Term
+                          short_desc: Loans Duration 5 months
+                        value: 5 months
+                      - descriptor:
+                          code: INTEREST_RATE_TYPE
+                          name: Interest rate type
+                          short_desc: Fixed Interest type
+                        value: FIXED
+                      - descriptor:
+                          code: APPLICATION_FEE
+                          name: Application Fees
+                          short_desc: Application Fees
+                        value: 1000 INR
+                      - descriptor:
+                          code: FORECLOSURE_FEE
+                          name: Foreclosure Penalty
+                          short_desc: Loan Foreclosure Penalty
+                        value: 0.5%
+                      - descriptor:
+                          code: INTEREST_RATE_CONVERSION_CHARGE
+                          name: interest rate conversion charges
+                          short_desc: Interest rate conversion charges
+                        value: 1000 INR
+                      - descriptor:
+                          code: DELAY_PENALTY_FEE
+                          name: Delayed payments penalty
+                          short_desc: Delayed payments penalty
+                        value: 5%
+                      - descriptor:
+                          code: OTHER_PENALTY_FEE
+                          name: Other Penal Charges
+                          short_desc: Other Penal Charges
+                        value: 1%
+                      - descriptor:
+                          code: ANNUAL_PERCENTAGE_RATE
+                          name: Annual Percentage Rate
+                          short_desc: Effective annualized interest rate in percentage computed on net
+                            disbursed amount using IRR approach and reducing
+                            balance method
+                        value: 5%
+                      - descriptor:
+                          code: REPAYMENT_FREQUENCY
+                          name: Repayment Frequency
+                          short_desc: Repayment Frequency by borrower
+                        value: MONTHLY
+                      - descriptor:
+                          code: NUMBER_OF_INSTALLMENTS_OF_REPAYMENT
+                          name: Number of installments of repayment
+                          short_desc: Number of installments borrower has to make to payback the loan
+                        value: "45"
+                      - descriptor:
+                          code: TNC_LINK
+                          name: Terms & Conditions
+                          short_desc: Terms and Conditions
+                        value: https://icicibank.com/loan/tnc.html
+                      - descriptor:
+                          code: COOL_OFF_PERIOD
+                          name: cool off period
+                          short_desc: Cooling off/look-up period during which borrower shall not be
+                            charged any penalty
+                        value: P30D
+                      - descriptor:
+                          code: INSTALLMENT_AMOUNT
+                          name: Installment amount
+                          short_desc: Each installment amount of repayment
+                        value: "46360"
+                      - descriptor:
+                          code: KFS_LINK
+                          name: Key Facts Statement Link
+                          short_desc: A link provided by the BPP points to a Key Fact Statement (KFS)
+                            document related to a loan. When accessed, the
+                            document is returned in text/html format, with the
+                            loan details organized in a standard HTML table.
+                            This format makes it easy for the buyer's app to
+                            read and reformat the information as needed. For
+                            more details, refer to the "KFS_LINK format"
+                            document in the "feature-ui" section.
+                        value: https://icicibank.com/loan/kfs-terms
+                    display: true
+            quote:
+              id: LOAN_LEAD_ID_OR_SIMILAR
+              price:
+                currency: INR
+                value: "224800"
+              breakup:
+                - title: PRINCIPAL
+                  price:
+                    value: "80720"
+                    currency: INR
+                - title: INSURANCE_CHARGES
+                  price:
+                    value: "500"
+                    currency: INR
+                - title: INTEREST
+                  price:
+                    value: "12000"
+                    currency: INR
+                - title: PROCESSING_FEE
+                  price:
+                    value: "1800"
+                    currency: INR
+                - title: OTHER_CHARGES
+                  price:
+                    value: "0"
+                    currency: INR
+                - title: NET_DISBURSED_AMOUNT
+                  price:
+                    value: "197700"
+                    currency: INR
+                - title: OUTSTANDING_PRINCIPAL
+                  price:
+                    value: "119280"
+                    currency: INR
+                - title: OUTSTANDING_INTEREST
+                  price:
+                    value: "6000"
+                    currency: INR
+                - title: PRE_PAYMENT_CHARGE
+                  price:
+                    value: "4500"
+                    currency: INR
+              ttl: PT15D
+            fulfillments:
+              - id: F1
+                type: LOAN
+                customer:
+                  person:
+                    name: John Doe
+                  contact:
+                    phone: +91-9999999999
+                    email: john.doe@example.com
+                state:
+                  descriptor:
+                    code: DISBURSED
+                tags:
+                  - descriptor:
+                      name: Checklist
+                      code: CHECKLISTS
+                    display: false
+                    list:
+                      - descriptor:
+                          code: PERSONAL_INFORMATION
+                          name: Personal Information
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: LOAN_OFFER
+                          name: Loan Offer
+                        value: SELECTED
+                      - descriptor:
+                          code: JOURNEY_OFFLINE
+                          name: Journey Offline
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: KYC
+                          name: OFFLINE
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: REPAYMENT
+                          name: E-MANDATE
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: BANK_ACCOUNT_VERIFICATION
+                          name: PENNY DROP
+                        value: SUCCESSFUL
+                      - descriptor:
+                          code: LOAN_AGREEMENT
+                          name: CLICKWRAP
+                        value: SUCCESSFUL
+            payments:
+              - id: LOAN_DISBURSMENT_ID
+                type: POST_FULFILLMENT
+                params:
+                  amount: "92720"
+                  currency: INR
+                status: PAID
+                time:
+                  label: PRE_PART_PAYMENT
+              - type: ON_FULFILLMENT
+                id: LOAN_DISBURSMENT_ID
+                status: PAID
+                collected_by: CONSUMER
+                time:
+                  label: LOAN_DISBURSMENT
+                  timestamp: 2023-05-25T05:23:03.443Z
+                params:
+                  bank_code: XXXXXXXX
+                  bank_account_number: xxxxxxxxxxxxxx
+                  transaction_id: 4429e52c-5d41-4e24-ac2e-42eb2fa8f72b
+                  amount: "197700"
+                  currency: INR
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-06-01T00:00:00.000Z
+                    end: 2023-06-30T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-07-01T00:00:00.000Z
+                    end: 2023-07-31T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: DEFERRED
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-08-01T00:00:00.000Z
+                    end: 2023-08-31T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: DEFERRED
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-09-01T00:00:00.000Z
+                    end: 2023-09-30T23:59:59.999Z
+              - type: POST_FULFILLMENT
+                id: INSTALLMENT_ID_PERSONAL_LOAN
+                params:
+                  amount: "46360"
+                  currency: INR
+                status: NOT-PAID
+                time:
+                  label: INSTALLMENT
+                  range:
+                    start: 2023-08-01T00:00:00.000Z
+                    end: 2023-08-31T23:59:59.999Z
+            cancellation_terms:
+              - fulfillment_state:
+                  descriptor:
+                    code: SANCTIONED
+                cancellation_fee:
+                  percentage: 3%
+              - external_ref:
+                  mimetype: text/html
+                  url: https://icicibank.com/loan/tnc.html
+              - fulfillment_state:
+                  descriptor:
+                    code: DISBURSED
+                cancellation_fee:
+                  percentage: 5%
+            documents:
+              - descriptor:
+                  code: LOAN_AGREEMENT
+                  name: Loan Agreement Document
+                  short_desc: Download your Loan Agreement document here
+                  long_desc: A Loan Agreement Document is a legal contract outlining terms such as
+                    loan amount, interest rate, repayment schedule, and
+                    collateral, binding a lender and borrower in a formal
+                    financial arrangement.
+                mime_type: application/pdf
+                url: https://lender.com/loan/loan-agreement/O1.pdf
+              - descriptor:
+                  code: LOAN_CANCELLATION
+                  name: Loan Cancellation Document
+                  short_desc: Download your Loan Cancellation document here
+                  long_desc: A Loan Cancellation Document is a formal agreement used to terminate
+                    an existing loan, releasing the borrower from repayment
+                    obligations and confirming the loan's cancellation.
+                mime_type: application/pdf
+                url: https://lender.com/loan/loan-cancellation/O1.pdf
+            created_at: 2023-05-25T05:23:03.443Z
+            updated_at: 2023-05-25T05:23:03.443Z
+      saveData:
+        transactionId: $.context.transaction_id
+        latestMessage_id: $.context.message_id
+        latestTimestamp: $.context.timestamp
+        bapId: $.context.bap_id
+        bapUri: $.context.bap_uri
+        bppId: $.context.bpp_id
+        bppUri: $.context.bpp_uri
+        city_code: $.context.location.city.code
+      inputs: {}
+    examples:
+      - name: example for on_update
+        payload:
+          context:
+            domain: ONDC:FIS12
+            action: on_update
+            timestamp: 2026-05-18T06:47:45.006Z
+            transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
+            message_id: 9ada6427-b8ea-4077-8c8a-49c405be35fd
+            bap_id: bap.example.com
+            bap_uri: https://bap.example.com
+            ttl: PT30S
+            bpp_id: bpp.example.com
+            bpp_uri: https://bpp.example.com
+            version: 2.0.3
+            location:
+              country:
+                code: IND
+              city:
+                code: "*"
+          message:
+            order:
+              id: LOAN_ORDER_1779086861504_DEFAULT
+              provider:
+                id: personal_loan_provider_6eac8d9f-b81e-47f7-9b13-e2b0e89a712e
+                descriptor:
+                  images:
+                    - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
+                      size_type: sm
+                  name: ICICI Bank
+                  short_desc: ICICI Bank Ltd
+                  long_desc: ICICI Bank Ltd, India.
+                tags:
+                  - descriptor:
+                      code: CONTACT_INFO
+                      name: Contact Info
+                    list:
+                      - descriptor:
+                          code: GRO_NAME
+                          name: Gro name
+                        value: ICICI
+                      - descriptor:
+                          code: GRO_EMAIL
+                          name: Gro email
+                        value: lifeline@iciciprulife.com
+                      - descriptor:
+                          code: GRO_CONTACT_NUMBER
+                          name: Gro contact number
+                        value: 1860 266 7766
+                      - descriptor:
+                          code: GRO_DESIGNATION
+                          name: Gro Designation
+                        value: Nodal Grievance Redressal Officer
+                      - descriptor:
+                          code: GRO_ADDRESS
+                          name: Gro Address
+                        value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                          Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_LINK
+                          name: Customer support link
+                        value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                          name: Customer support contact number
+                        value: 1800 1080
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_EMAIL
+                          name: Customer support email
+                        value: customer.care@icicibank.com
+                  - descriptor:
+                      code: LSP_INFO
+                      name: Lsp Info
+                    list:
+                      - descriptor:
+                          code: LSP_NAME
+                          name: Lsp name
+                        value: ICICI_LSP
+                      - descriptor:
+                          code: LSP_EMAIL
+                          name: Lsp email
+                        value: lsp@iciciprulife.com
+                      - descriptor:
+                          code: LSP_CONTACT_NUMBER
+                          name: Lsp contact number
+                        value: 1860 266 7766
+                      - descriptor:
+                          code: LSP_ADDRESS
+                          name: Lsp Address
+                        value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                          Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+              items:
+                - id: ITEM_ID_PERSONAL_LOAN_2
+                  descriptor:
+                    code: PERSONAL_LOAN
+                    name: Personal Loan without AA - Offline Journey
+                  category_ids:
+                    - "101123"
+                    - "101124"
+                  fulfillment_ids:
+                    - F1
+                  price:
+                    currency: INR
+                    value: "233900"
+                  tags:
+                    - descriptor:
+                        code: LOAN_INFO
+                        name: Loan Information
+                      list:
+                        - descriptor:
+                            code: INTEREST_RATE
+                            name: Interest Rate
+                            short_desc: Loans starting from 12% (p.a)
+                          value: 12%
+                        - descriptor:
+                            code: TERM
+                            name: Loan Term
+                            short_desc: Loans Duration 5 months
+                          value: 5 months
+                        - descriptor:
+                            code: INTEREST_RATE_TYPE
+                            name: Interest rate type
+                            short_desc: Fixed Interest type
+                          value: FIXED
+                        - descriptor:
+                            code: APPLICATION_FEE
+                            name: Application Fees
+                            short_desc: Application Fees
+                          value: 1000 INR
+                        - descriptor:
+                            code: FORECLOSURE_FEE
+                            name: Foreclosure Penalty
+                            short_desc: Loan Foreclosure Penalty
+                          value: 0.5%
+                        - descriptor:
+                            code: INTEREST_RATE_CONVERSION_CHARGE
+                            name: interest rate conversion charges
+                            short_desc: Interest rate conversion charges
+                          value: 1000 INR
+                        - descriptor:
+                            code: DELAY_PENALTY_FEE
+                            name: Delayed payments penalty
+                            short_desc: Delayed payments penalty
+                          value: 5%
+                        - descriptor:
+                            code: OTHER_PENALTY_FEE
+                            name: Other Penal Charges
+                            short_desc: Other Penal Charges
+                          value: 1%
+                        - descriptor:
+                            code: ANNUAL_PERCENTAGE_RATE
+                            name: Annual Percentage Rate
+                            short_desc: Effective annualized interest rate in percentage computed on net
+                              disbursed amount using IRR approach and reducing
+                              balance method
+                          value: 5%
+                        - descriptor:
+                            code: REPAYMENT_FREQUENCY
+                            name: Repayment Frequency
+                            short_desc: Repayment Frequency by borrower
+                          value: MONTHLY
+                        - descriptor:
+                            code: NUMBER_OF_INSTALLMENTS_OF_REPAYMENT
+                            name: Number of installments of repayment
+                            short_desc: Number of installments borrower has to make to payback the loan
+                          value: "45"
+                        - descriptor:
+                            code: TNC_LINK
+                            name: Terms & Conditions
+                            short_desc: Terms and Conditions
+                          value: https://icicibank.com/loan/tnc.html
+                        - descriptor:
+                            code: COOL_OFF_PERIOD
+                            name: cool off period
+                            short_desc: Cooling off/look-up period during which borrower shall not be
+                              charged any penalty
+                          value: P30D
+                        - descriptor:
+                            code: INSTALLMENT_AMOUNT
+                            name: Installment amount
+                            short_desc: Each installment amount of repayment
+                          value: "46360"
+                        - descriptor:
+                            code: KFS_LINK
+                            name: Key Facts Statement Link
+                            short_desc: A link provided by the BPP points to a Key Fact Statement (KFS)
+                              document related to a loan. When accessed, the
+                              document is returned in text/html format, with the
+                              loan details organized in a standard HTML table.
+                              This format makes it easy for the buyer's app to
+                              read and reformat the information as needed. For
+                              more details, refer to the "KFS_LINK format"
+                              document in the "feature-ui" section.
+                          value: https://icicibank.com/loan/kfs-terms
+                      display: true
+              quote:
+                id: bcaa0931-47d7-42c9-aa83-3fb2b5048551
+                price:
+                  currency: INR
+                  value: "224800"
+                breakup:
+                  - title: PRINCIPAL
+                    price:
+                      value: "80720"
+                      currency: INR
+                  - title: INSURANCE_CHARGES
+                    price:
+                      value: "500"
+                      currency: INR
+                  - title: INTEREST
+                    price:
+                      value: "12000"
+                      currency: INR
+                  - title: PROCESSING_FEE
+                    price:
+                      value: "1800"
+                      currency: INR
+                  - title: OTHER_CHARGES
+                    price:
+                      value: "0"
+                      currency: INR
+                  - title: NET_DISBURSED_AMOUNT
+                    price:
+                      value: "197700"
+                      currency: INR
+                  - title: OUTSTANDING_PRINCIPAL
+                    price:
+                      value: "119280"
+                      currency: INR
+                  - title: OUTSTANDING_INTEREST
+                    price:
+                      value: "6000"
+                      currency: INR
+                  - title: PRE_PAYMENT_CHARGE
+                    price:
+                      value: "4500"
+                      currency: INR
+                ttl: PT15D
+              fulfillments:
+                - id: F1
+                  type: LOAN
+                  customer:
+                    person:
+                      name: John Doe
+                    contact:
+                      phone: +91-9999999999
+                      email: john.doe@example.com
+                  state:
+                    descriptor:
+                      code: DISBURSED
+                  tags:
+                    - descriptor:
+                        name: Checklist
+                        code: CHECKLISTS
+                      display: false
+                      list:
+                        - descriptor:
+                            code: PERSONAL_INFORMATION
+                            name: Personal Information
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: LOAN_OFFER
+                            name: Loan Offer
+                          value: SELECTED
+                        - descriptor:
+                            code: JOURNEY_OFFLINE
+                            name: Journey Offline
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: KYC
+                            name: OFFLINE
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: REPAYMENT
+                            name: E-MANDATE
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: BANK_ACCOUNT_VERIFICATION
+                            name: PENNY DROP
+                          value: SUCCESSFUL
+                        - descriptor:
+                            code: LOAN_AGREEMENT
+                            name: CLICKWRAP
+                          value: SUCCESSFUL
+              payments:
+                - id: LOAN_DISBURSMENT_ID
+                  type: POST_FULFILLMENT
+                  params:
+                    amount: "92720"
+                    currency: INR
+                  status: PAID
+                  time:
+                    label: PRE_PART_PAYMENT
+                - type: ON_FULFILLMENT
+                  id: LOAN_DISBURSMENT_ID
+                  status: PAID
+                  collected_by: CONSUMER
+                  time:
+                    label: LOAN_DISBURSMENT
+                    timestamp: 2023-05-25T05:23:03.443Z
+                  params:
+                    bank_code: XXXXXXXX
+                    bank_account_number: xxxxxxxxxxxxxx
+                    transaction_id: 4429e52c-5d41-4e24-ac2e-42eb2fa8f72b
+                    amount: "197700"
+                    currency: INR
+                - type: POST_FULFILLMENT
+                  id: INSTALLMENT_ID_PERSONAL_LOAN
+                  params:
+                    amount: "46360"
+                    currency: INR
+                  status: PAID
+                  time:
+                    label: INSTALLMENT
+                    range:
+                      start: 2023-06-01T00:00:00.000Z
+                      end: 2023-06-30T23:59:59.999Z
+                - type: POST_FULFILLMENT
+                  id: INSTALLMENT_ID_PERSONAL_LOAN
+                  params:
+                    amount: "46360"
+                    currency: INR
+                  status: PAID
+                  time:
+                    label: INSTALLMENT
+                    range:
+                      start: 2023-07-01T00:00:00.000Z
+                      end: 2023-07-31T23:59:59.999Z
+                - type: POST_FULFILLMENT
+                  id: INSTALLMENT_ID_PERSONAL_LOAN
+                  params:
+                    amount: "46360"
+                    currency: INR
+                  status: DEFERRED
+                  time:
+                    label: INSTALLMENT
+                    range:
+                      start: 2023-08-01T00:00:00.000Z
+                      end: 2023-08-31T23:59:59.999Z
+                - type: POST_FULFILLMENT
+                  id: INSTALLMENT_ID_PERSONAL_LOAN
+                  params:
+                    amount: "46360"
+                    currency: INR
+                  status: DEFERRED
+                  time:
+                    label: INSTALLMENT
+                    range:
+                      start: 2023-09-01T00:00:00.000Z
+                      end: 2023-09-30T23:59:59.999Z
+                - type: POST_FULFILLMENT
+                  id: INSTALLMENT_ID_PERSONAL_LOAN
+                  params:
+                    amount: "46360"
+                    currency: INR
+                  status: NOT-PAID
+                  time:
+                    label: INSTALLMENT
+                    range:
+                      start: 2023-08-01T00:00:00.000Z
+                      end: 2023-08-31T23:59:59.999Z
+              cancellation_terms:
+                - fulfillment_state:
+                    descriptor:
+                      code: SANCTIONED
+                  cancellation_fee:
+                    percentage: 3%
+                - external_ref:
+                    mimetype: text/html
+                    url: https://icicibank.com/loan/tnc.html
+                - fulfillment_state:
+                    descriptor:
+                      code: DISBURSED
+                  cancellation_fee:
+                    percentage: 5%
+              documents:
+                - descriptor:
+                    code: LOAN_AGREEMENT
+                    name: Loan Agreement Document
+                    short_desc: Download your Loan Agreement document here
+                    long_desc: A Loan Agreement Document is a legal contract outlining terms such as
+                      loan amount, interest rate, repayment schedule, and
+                      collateral, binding a lender and borrower in a formal
+                      financial arrangement.
+                  mime_type: application/pdf
+                  url: https://lender.com/loan/loan-agreement/O1.pdf
+                - descriptor:
+                    code: LOAN_CANCELLATION
+                    name: Loan Cancellation Document
+                    short_desc: Download your Loan Cancellation document here
+                    long_desc: A Loan Cancellation Document is a formal agreement used to terminate
+                      an existing loan, releasing the borrower from repayment
+                      obligations and confirming the loan's cancellation.
+                  mime_type: application/pdf
+                  url: https://lender.com/loan/loan-cancellation/O1.pdf
+              created_at: 2026-05-18T06:47:41.504Z
+              updated_at: 2026-05-18T06:47:45.013Z
         type: request
         description: please add relevant description
 transaction_history: []
