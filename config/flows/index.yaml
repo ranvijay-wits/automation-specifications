@@ -119,137 +119,56 @@ flows:
     config:
       $ref: ./GOLD LOAN/Gold_Loan_Without_Account_Aggregator_With_IGM_v-1_0_0_.yaml
   - type: playground
-    id: Personal_Loan_&_Sachet_Insurance_with_AA_And_Monitoring_Consent
+    id: Personal_Loan_Dedupe_Check
     usecase: PERSONAL LOAN
     tags:
       - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
       - REPORTABLE
-    description: Personal Loan & Sachet Insurance with AA and Monitoring Consent
+    description: Personal Loan - Dedupe Check
     config:
-      $ref: ./PERSONAL
-        LOAN/Personal_Loan___Sachet_Insurance_with_AA_And_Monitoring_Consent.yaml
+      $ref: ./PERSONAL LOAN/Personal_Loan_Dedupe_Check.yaml
   - type: playground
-    id: Personal_Loan_Foreclosure_With_Account_Aggregator
+    id: Personal_Loan_Foreclosure_Offline
     usecase: PERSONAL LOAN
     tags:
       - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
       - REPORTABLE
-    description: Personal Loan - Loan Foreclosure
+    description: Personal Loan Foreclosure Offline
     config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_Foreclosure_With_Account_Aggregator.yaml
+      $ref: ./PERSONAL LOAN/Personal_Loan_Foreclosure_Offline.yaml
   - type: playground
-    id: Personal_Loan_Foreclosure_Without_Account_Aggregator
+    id: Personal_Loan_Missed_EMI_Offline
     usecase: PERSONAL LOAN
     tags:
       - WORKBENCH
-      - WITHOUT_ACCOUNT_AGGREGATOR
       - REPORTABLE
-    description: Personal Loan - Loan Foreclosure
+    description: Personal Loan missed_emi_payment Offline
     config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_Foreclosure_Without_Account_Aggregator.yaml
-  - type: playground
-    id: Personal_Loan_Missed_EMI_With_Account_Aggregator
-    usecase: PERSONAL LOAN
-    tags:
-      - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
-      - REPORTABLE
-    description: Personal Loan - Missed EMI Payment
-    config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_Missed_EMI_With_Account_Aggregator.yaml
-  - type: playground
-    id: Personal_Loan_Missed_EMI_Without_Account_Aggregator
-    usecase: PERSONAL LOAN
-    tags:
-      - WORKBENCH
-      - WITHOUT_ACCOUNT_AGGREGATOR
-      - REPORTABLE
-    description: Personal Loan - Missed EMI Payment
-    config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_Missed_EMI_Without_Account_Aggregator.yaml
-  - type: playground
-    id: Personal_Loan_Multiple_Offers_With_Account_Aggregator_&_Monitoring_Consent
-    usecase: PERSONAL LOAN
-    tags:
-      - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
-      - REPORTABLE
-      - WITH_MONITORING_CONSENT
-    description: Personal Loan - Multiple Offers (Bureau Consent & AA Verification)
-    config:
-      $ref: ./PERSONAL
-        LOAN/Personal_Loan_Multiple_Offers_With_Account_Aggregator___Monitoring_Consent.yaml
+      $ref: ./PERSONAL LOAN/Personal_Loan_Missed_EMI_Offline.yaml
   - type: playground
     id: Personal_Loan_Offline
     usecase: PERSONAL LOAN
     tags:
       - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
       - REPORTABLE
     description: Personal Loan - Offline verification and processing
     config:
       $ref: ./PERSONAL LOAN/Personal_Loan_Offline.yaml
   - type: playground
-    id: Personal_Loan_Offline_Online_Flow
+    id: Personal_Loan_Pre_Part_Payment_Offline
     usecase: PERSONAL LOAN
     tags:
       - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
       - REPORTABLE
-    description: Personal Loan - Offline verification and processing
+    description: Personal Loan Pre Part Payment Offline
     config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_Offline_Online_Flow.yaml
+      $ref: ./PERSONAL LOAN/Personal_Loan_Pre_Part_Payment_Offline.yaml
   - type: playground
-    id: Personal_Loan_Pre_Part_Payment_Without_Account_Aggregator
+    id: Personal_Loan_Single_Redirection
     usecase: PERSONAL LOAN
     tags:
       - WORKBENCH
-      - WITHOUT_ACCOUNT_AGGREGATOR
       - REPORTABLE
-    description: Personal Loan - Pre-Part Payment
+    description: Personal Loan - Single Redirection
     config:
-      $ref: ./PERSONAL
-        LOAN/Personal_Loan_Pre_Part_Payment_Without_Account_Aggregator.yaml
-  - type: playground
-    id: Personal_Loan_With_AA_And_Monitoring_Consent
-    usecase: PERSONAL LOAN
-    tags:
-      - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
-      - REPORTABLE
-    description: Personal Loan with Account Aggregator & monitoring consent
-    config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_With_AA_And_Monitoring_Consent.yaml
-  - type: playground
-    id: Personal_Loan_Without_AA_And_Monitoring_Consent
-    usecase: PERSONAL LOAN
-    tags:
-      - WORKBENCH
-      - WITHOUT_ACCOUNT_AGGREGATOR
-      - REPORTABLE
-    description: Personal Loan flow without Account Aggregator
-    config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_Without_AA_And_Monitoring_Consent.yaml
-  - type: playground
-    id: Personal_Loan_Without_Account_Monitoring
-    usecase: PERSONAL LOAN
-    tags:
-      - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
-      - REPORTABLE
-    description: Personal Loan with Account Aggregator & monitoring consent
-    config:
-      $ref: ./PERSONAL LOAN/Personal_Loan_Without_Account_Monitoring.yaml
-  - type: playground
-    id: Personal_Loan__PrePart_Payment_With_Account_Aggregator
-    usecase: PERSONAL LOAN
-    tags:
-      - WORKBENCH
-      - WITH_ACCOUNT_AGGREGATOR
-      - REPORTABLE
-    description: Personal Loan - Pre-Part Payment
-    config:
-      $ref: ./PERSONAL
-        LOAN/Personal_Loan__PrePart_Payment_With_Account_Aggregator.yaml
+      $ref: ./PERSONAL LOAN/Personal_Loan_Single_Redirection.yaml
