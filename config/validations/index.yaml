@@ -798,8 +798,6 @@ _TESTS_:
             - PENDING
           _RETURN_: attr all in enumList
     - _NAME_: ON_SELECT_FULFILLMENT_CUSTOMER_STATE
-      customerpath: $.message.order.fulfillments[*].customer.state.descriptor.code
-      _CONTINUE_: "!(customerpath are present)"
       _RETURN_:
         - _NAME_: VALID_CUSTOMER_STATE_CODE
           attr: $.message.order.fulfillments[*].customer.state.descriptor.code
@@ -807,6 +805,7 @@ _TESTS_:
             - ACCEPTED
             - REJECTED
             - PENDING
+          _CONTINUE_: "!(attr are present)"
           _RETURN_: attr all in enumList
     - _NAME_: ON_SELECT_ITEMS_FULFILLMENT_IDS_MATCH
       _RETURN_:
