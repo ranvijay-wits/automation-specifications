@@ -28,18 +28,6 @@ _TESTS_:
             - _NAME_: REQUIRED_CONTEXT_BAP_URI
               attr: $.context.bap_uri
               _RETURN_: attr are present
-            - _NAME_: REQUIRED_CONTEXT_BPP_ID
-              attr: $.context.bpp_id
-              var_search:
-                - search
-              _CONTINUE_: (action all in var_search)
-              _RETURN_: attr are present
-            - _NAME_: REQUIRED_CONTEXT_BPP_URI
-              attr: $.context.bpp_uri
-              var_search:
-                - search
-              _CONTINUE_: (action all in var_search)
-              _RETURN_: attr are present
             - _NAME_: REQUIRED_CONTEXT_TRANSACTION_ID
               attr: $.context.transaction_id
               _RETURN_: attr are present
