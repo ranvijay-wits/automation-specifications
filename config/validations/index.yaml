@@ -132,6 +132,8 @@ _TESTS_:
           _CONTINUE_: "!(attr are present)"
           _RETURN_: attr any in enumList
         - _NAME_: REQUIRED_PAYMENT_TAGS_GROUPS
+          tagsPath: $.message.intent.payment.tags[*].descriptor.code
+          _CONTINUE_: "!(tagsPath are present)"
           _RETURN_:
             - _NAME_: REQUIRED_BUYER_FINDER_FEES_TAG
               validTags: &a3
@@ -154,6 +156,7 @@ _TESTS_:
                 - percent-annualized
                 - percent
                 - amount
+              _CONTINUE_: "!(attr are present)"
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_SETTLEMENT_TERMS_TAG
               validTags: &a5
@@ -218,18 +221,25 @@ _TESTS_:
           _CONTINUE_: (var_category_code any in category_code_path)
           _RETURN_: attr are present
     - _NAME_: ON_SEARCH_PAYMENT
-      _SCOPE_: $.message.catalog.providers[*].categories[?(@.descriptor.code=='PERSONAL_LOAN')]
+      paymentsPath: $.message.catalog.providers[*].payments[*].collected_by
+      _CONTINUE_: "!(paymentsPath are present)"
       _RETURN_:
         - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
           attr: $.message.catalog.providers[*].payments[*].collected_by
           _RETURN_: attr are present
         - _NAME_: VALID_PAYMENT_COLLECTED_BY_ENUM
           attr: $.message.catalog.providers[*].payments[*].collected_by
-          enumList: *a2
+          enumList:
+            - BPP
+            - BAP
+            - CONSUMER
+          _CONTINUE_: "!(attr are present)"
           _RETURN_: attr all in enumList
         - _NAME_: REQUIRED_BUYER_FINDER_FEES_TAG
           validTags: *a3
           tagPath: $.message.catalog.providers[*].payments[*].tags[*].descriptor.code
+          tagsPresent: $.message.catalog.providers[*].payments[*].tags[*].descriptor.code
+          _CONTINUE_: "!(tagsPresent are present)"
           _RETURN_: tagPath any in validTags
         - _NAME_: REQUIRED_BUYER_FINDER_FEES_LIST
           _SCOPE_: $.message.catalog.providers[*].payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]
@@ -242,10 +252,14 @@ _TESTS_:
           attr: $.value
           enumList:
             - PERCENT_ANNUALIZED
+            - percent-annualized
+          _CONTINUE_: "!(attr are present)"
           _RETURN_: attr all in enumList
         - _NAME_: REQUIRED_SETTLEMENT_TERMS_TAG
           validTags: *a5
           tagPath: $.message.catalog.providers[*].payments[*].tags[*].descriptor.code
+          tagsPresent: $.message.catalog.providers[*].payments[*].tags[*].descriptor.code
+          _CONTINUE_: "!(tagsPresent are present)"
           _RETURN_: tagPath any in validTags
         - _NAME_: REQUIRED_SETTLEMENT_TERMS_LIST
           _SCOPE_: $.message.catalog.providers[*].payments[*].tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]
@@ -797,15 +811,22 @@ _TESTS_:
             - FAILED
             - PENDING
           _RETURN_: attr all in enumList
-    - _NAME_: ON_SELECT_FULFILLMENT_CUSTOMER_STATE
+    - _NAME_: ON_SELECT_FULFILLMENT_STATE
+      item_code: $.message.order.items[*].descriptor.code
+      loan_type_match: *a11
+      statepath: $.message.order.fulfillments[*].state.descriptor.code
+      _CONTINUE_: "!(item_code any in loan_type_match) || !(statepath are present)"
       _RETURN_:
-        - _NAME_: VALID_CUSTOMER_STATE_CODE
-          attr: $.message.order.fulfillments[*].customer.state.descriptor.code
+        - _NAME_: VALID_FULFILLMENT_STATE_CODE
+          attr: $.message.order.fulfillments[*].state.descriptor.code
           enumList:
-            - ACCEPTED
-            - REJECTED
+            - INITIATED
+            - SANCTIONED
+            - DISBURSED
             - PENDING
-          _CONTINUE_: "!(attr are present)"
+            - REJECTED
+            - COMPLETED
+            - ACCEPTED
           _RETURN_: attr all in enumList
     - _NAME_: ON_SELECT_ITEMS_FULFILLMENT_IDS_MATCH
       _RETURN_:
@@ -962,13 +983,17 @@ _TESTS_:
           _RETURN_: attr all in enumList
         - _NAME_: REQUIRED_FULFILLMENT_STATE_DESCRIPTOR_CODE
           attr: $.message.order.fulfillments[*].state.descriptor.code
+          _CONTINUE_: "!(attr are present)"
           _RETURN_: attr are present
         - _NAME_: VALID_FULFILLMENT_STATE_ENUM
           attr: $.message.order.fulfillments[*].state.descriptor.code
           enumList:
-            - DISBURSED
+            - INITIATED
             - SANCTIONED
-            - DISPATCHED
+            - DISBURSED
+            - PENDING
+            - COMPLETED
+          _CONTINUE_: "!(attr are present)"
           _RETURN_: attr any in enumList
         - _NAME_: REQUIRED_FULFILLMENT_CUSTOMER
           attr: $.message.order.fulfillments[*].customer.person.name
@@ -1041,7 +1066,7 @@ _TESTS_:
           _CONTINUE_: "!(attr are present)"
           _RETURN_: attr any in enumList
     - _NAME_: ON_CONFIRM_CANCELLATION_TERMS_CHARGE
-      cancellationpath: $.message.order.cancellation_terms[*].cancellation_fee
+      cancellationpath: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
       _CONTINUE_: "!(cancellationpath are present)"
       _RETURN_:
         - _NAME_: REQUIRED_CANCELLATION_FEE_TYPE
@@ -1049,7 +1074,7 @@ _TESTS_:
           feeAmount: $.message.order.cancellation_terms[*].cancellation_fee.amount.value
           _RETURN_: (feePercentage are present) || (feeAmount are present)
     - _NAME_: ON_CONFIRM_FULFILLMENT_CHECKLISTS
-      checklistpath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='CHECKLISTS')]
+      checklistpath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='CHECKLISTS')].descriptor.code
       _CONTINUE_: "!(checklistpath are present)"
       _RETURN_:
         - _NAME_: REQUIRED_CHECKLISTS_TAG
@@ -1235,7 +1260,7 @@ _TESTS_:
           _CONTINUE_: "!(attr are present)"
           _RETURN_: attr follow regex reg
     - _NAME_: ON_UPDATE_PAYMENT_TIME_RANGE
-      paymentpath: $.message.order.payments[*].time.range
+      paymentpath: $.message.order.payments[*].time.range.start
       _CONTINUE_: "!(paymentpath are present)"
       _RETURN_:
         - _NAME_: REQUIRED_PAYMENT_TIME_RANGE_START
@@ -1250,7 +1275,7 @@ _TESTS_:
             - ^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})$
           _RETURN_: attr follow regex reg
     - _NAME_: ON_UPDATE_FULFILLMENT_CHECKLISTS
-      checklistpath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='CHECKLISTS')]
+      checklistpath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='CHECKLISTS')].descriptor.code
       _CONTINUE_: "!(checklistpath are present)"
       _RETURN_:
         - _NAME_: REQUIRED_CHECKLISTS_TAG
@@ -1322,18 +1347,6 @@ _TESTS_:
           attr: $.message.order.fulfillments[*].state.descriptor.code
           enumList: *a17
           _RETURN_: attr any in enumList
-    - _NAME_: ON_STATUS_XINPUT_FORM_RESPONSE_STATUS_NOT_REJECTED
-      statuspath: $.message.order.items[*].xinput.form_response.status
-      _CONTINUE_: "!(statuspath are present)"
-      _RETURN_:
-        - _NAME_: If_Validation_Result_is_REJECTED_flow_cant_move_forward
-          attr: $.message.order.items[*].xinput.form_response.status
-          enumList:
-            - COMPLETED
-            - OFFLINE_PENDING
-            - APPROVED
-            - SUCCESS
-          _RETURN_: attr all in enumList
     - _NAME_: ON_STATUS_PAYMENTS
       paymentspath: $.message.order.payments[*].type
       _CONTINUE_: "!(paymentspath are present)"
@@ -1351,7 +1364,7 @@ _TESTS_:
       _CONTINUE_: "!(attr are present)"
       _RETURN_: attr any in enumList
     - _NAME_: ON_STATUS_FULFILLMENT_CHECKLISTS
-      checklistpath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='CHECKLISTS')]
+      checklistpath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='CHECKLISTS')].descriptor.code
       _CONTINUE_: "!(checklistpath are present)"
       _RETURN_:
         - _NAME_: REQUIRED_CHECKLISTS_TAG
@@ -1368,11 +1381,11 @@ _TESTS_:
           attr: $.list[*].value
           enumList: *a22
           _RETURN_: attr all in enumList
-    - _NAME_: ON_STATUS_XINPUT_FORM_RESPONSE_STATUS_EXTENDED
+    - _NAME_: ON_STATUS_XINPUT_FORM_RESPONSE_STATUS
       statuspath: $.message.order.items[*].xinput.form_response.status
       _CONTINUE_: "!(statuspath are present)"
       _RETURN_:
-        - _NAME_: VALID_FORM_RESPONSE_STATUS_EXTENDED
+        - _NAME_: VALID_FORM_RESPONSE_STATUS
           attr: $.message.order.items[*].xinput.form_response.status
           enumList:
             - COMPLETED
@@ -1382,6 +1395,7 @@ _TESTS_:
             - PENDING
             - IN_PROGRESS
             - FAILED
+            - EXPIRED
           _RETURN_: attr all in enumList
   issue:
     - _NAME_: REQUIRED_CONTEXT_FIELDS
