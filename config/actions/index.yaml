@@ -89,10 +89,13 @@ supportedActions:
     - on_status
     - on_issue_status
     - on_update
+    - update
+    - status
   on_issue_status:
     - on_issue
     - issue
     - on_update
+    - on_status
 apiProperties:
   search:
     async_predecessor: null
